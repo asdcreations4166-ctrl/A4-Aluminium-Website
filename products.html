@@ -30,7 +30,7 @@
 
     <section class="products-section py-5">
         <div class="container px-3 px-md-0">
-            <h1 class="section-title text-center mb-5">Our Premium Products</h1>
+            <h1 class="section-title text-center mb-5">Available Products</h1>
             <p class="section-subtitle text-center mb-5">Finest quality aluminium solutions for your needs</p>
             
             <div class="row g-4 mb-5">
@@ -78,46 +78,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <i class="fas fa-ruler-combined fa-5x"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-ruler-combined text-primary me-2"></i>Aluminium Profiles</h5>
-                            <p class="card-text">A wide range of aluminium profiles for various applications.</p>
-                            <p class="card-text"><strong>Price:</strong> $50</p>
-                            <p class="card-text"><strong>SKU:</strong> A4-004</p>
-                            <a href="contact.html" class="btn btn-sm btn-primary">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <i class="fas fa-layer-group fa-5x"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-layer-group text-primary me-2"></i>Aluminium Sheets</h5>
-                            <p class="card-text">High-quality aluminium sheets in various thicknesses and sizes.</p>
-                            <p class="card-text"><strong>Price:</strong> $75</p>
-                            <p class="card-text"><strong>SKU:</strong> A4-005</p>
-                            <a href="contact.html" class="btn btn-sm btn-primary">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <i class="fas fa-cogs fa-5x"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-cogs text-primary me-2"></i>Aluminium Hardware</h5>
-                            <p class="card-text">A complete range of hardware for aluminium doors and windows.</p>
-                            <p class="card-text"><strong>Price:</strong> Varies</p>
-                            <p class="card-text"><strong>SKU:</strong> A4-006</p>
-                            <a href="contact.html" class="btn btn-sm btn-primary">Get Quote</a>
-                        </div>
+                <!-- Removed individual product cards to replace with consolidated product list access -->
+                <div class="row w-100">
+                    <div class="col-12 text-center my-4">
+                        <button id="viewListBtn" class="btn btn-lg btn-outline-light"><i class="fas fa-file-pdf me-2"></i>View List</button>
+                        <p class="small text-muted mt-2">Click to open the master product list. If your browser blocks opening local files, place the file into the project folder and refresh.</p>
                     </div>
                 </div>
             </div>
@@ -166,5 +131,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Attempt to open the provided local product list file when the button is clicked.
+        // Note: Many browsers block opening file:// links from an http(s) page. If that happens,
+        // copy the file into the project folder and open it as a relative link instead.
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.getElementById('viewListBtn');
+            if (!btn) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var fileUrl = 'file:///D:/New%20folder%20(2)/Available%20Products%20list.xlsx.pdf';
+                try {
+                    var w = window.open(fileUrl, '_blank');
+                    if (!w) {
+                        alert('Your browser blocked opening local files.\n\nFallback: place "Available Products list.xlsx.pdf" into this project folder and open it from the site.');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Unable to open the file directly.\n\nFallback: place "Available Products list.xlsx.pdf" into this project folder and open it from the site.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
