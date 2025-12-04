@@ -799,6 +799,32 @@ section.loading {
     font-weight: 500;
 }
 
+/* Improve readability for small / muted text on dark backgrounds */
+/* Scope to common dark areas to avoid breaking light-themed sections */
+.contact-section .text-muted,
+.careers-section .text-muted,
+.footer .text-muted,
+.card .text-muted,
+.vision-mission-card .text-muted {
+    color: rgba(255,255,255,0.82) !important;
+}
+
+.contact-section small,
+.footer small,
+.card small,
+.contact-section .small,
+.card .small {
+    font-size: 0.95em; /* slightly larger for readability */
+    color: rgba(255,255,255,0.82) !important;
+}
+
+/* Ensure links inside muted text stay visible */
+.contact-section a.text-muted,
+.card a.text-muted,
+.footer a.text-muted {
+    color: rgba(255,255,255,0.9) !important;
+}
+
 .contact-section a {
     color: #E5C856;
 }
