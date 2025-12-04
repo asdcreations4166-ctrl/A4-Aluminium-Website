@@ -226,6 +226,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const formData = new FormData(contactForm);
+            if (resultDiv) {
+                resultDiv.className = 'alert alert-info';
+                resultDiv.innerText = 'Sending message…';
+                resultDiv.classList.remove('d-none');
+                resultDiv.setAttribute('aria-hidden', 'false');
+            }
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
