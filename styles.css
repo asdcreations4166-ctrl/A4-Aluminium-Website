@@ -491,6 +491,10 @@ section.loading {
 .nav-link.active {
     color: #fff !important;
 }
+
+.navbar-nav.ms-auto {
+    margin-right: 3cm !important;
+}
     border: none;
     border-left: 4px solid #667eea;
     background: white;
