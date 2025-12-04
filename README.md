@@ -38,7 +38,7 @@ A4 Aluminium/
 ├── products.html           # Product showcase gallery
 ├── works.html              # Portfolio of completed projects
 ├── contact.html            # Contact form & information
-├── hiring.html             # Hiring/Careers page
+├── careers.html            # Careers page
 ├── partners.html           # Partners page
 ├── styles.css              # Global styles (1923 lines)
 ├── script.js               # JavaScript interactions
@@ -87,7 +87,7 @@ Visit your deployed site at the hosting URL.
 - Location information
 - Map integration
 
-### Hiring (hiring.html)
+### Careers (careers.html)
 - Career opportunities
 - Job listings
 - Application information

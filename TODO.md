@@ -9,7 +9,7 @@
 - [x] Include partners section with 7 partners and placeholder quotes
 - [x] Add vision and mission statements
 - [x] Include contact form and social links
-- [x] Add hiring section
+- [x] Add careers section
 - [x] Fix accessibility issues (rel attributes, aria-label)
 - [x] Copy shop image to project directory
 
@@ -27,7 +27,7 @@
 - Vision and Mission statements created as requested
 - Partners' quotes are placeholders; user may provide actual quotes
 - Contact form currently logs to console; needs backend integration for actual sending
-- Hiring section links to email; may need more sophisticated application system
+- Careers section links to email; may need more sophisticated application system
 - Added a 'Back to Top' button that was missing but referenced in the JavaScript.
 - Added Font Awesome CDN to ensure icons are displayed correctly.
 - Added placeholder products to products.html. User needs to provide actual product information.
