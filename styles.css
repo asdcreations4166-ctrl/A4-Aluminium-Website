@@ -588,9 +588,10 @@ section.loading {
 .product-image,
 .work-image {
     width: 100%;
-    aspect-ratio: 4 / 3;
     display: flex;
-    align-items: center;
+    flex: 1 1 auto; /* allow image container to grow and fill card */
+    min-height: 0; /* allow flex children to shrink properly */
+    align-items: stretch; /* stretch image to fill vertically */
     justify-content: center;
     background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
     border-radius: 12px 12px 0 0;
@@ -603,14 +604,7 @@ section.loading {
     object-fit: cover;
     object-position: center;
     display: block;
-}
-
-/* Center and reduce width of the bottom product image frame (3rd card) */
-.products-section .row.g-4 > .col-md-4:nth-child(3) .product-image {
-    width: 75%;
-    margin: 0 auto;
-    max-width: 80%;
-    border-radius: 12px;
+    margin: 0; /* remove any default image margins */
 }
 
 .product-image i,
