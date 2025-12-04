@@ -179,7 +179,6 @@ h4 {
     position: relative;
     width: 100%;
     max-width: 820px;
-    animation: slideInRight 1s cubic-bezier(.2,.9,.2,1);
     margin: 0 auto;
     border-radius: 12px;
 }
