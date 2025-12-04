@@ -605,6 +605,14 @@ section.loading {
     display: block;
 }
 
+/* Center and reduce width of the bottom product image frame (3rd card) */
+.products-section .row.g-4 > .col-md-4:nth-child(3) .product-image {
+    width: 75%;
+    margin: 0 auto;
+    max-width: 80%;
+    border-radius: 12px;
+}
+
 .product-image i,
 .work-image i {
     font-size: 3rem;
