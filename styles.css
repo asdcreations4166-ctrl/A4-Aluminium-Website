@@ -90,11 +90,10 @@ h4 {
     letter-spacing: 0.5px;
 }
 
-/* Floating callback CTA */
+/* Careers section and cards */
 .careers-section {
-    position: fixed;
-    right: 24px;
-    bottom: 28px;
+    padding: 80px 0;
+}
 
 .careers-card {
     border: none;
@@ -106,6 +105,7 @@ h4 {
     gap: 8px;
     z-index: 2000;
     cursor: pointer;
+}
 
 .careers-card h4 {
     color: #ffffff;
@@ -120,15 +120,6 @@ h4 {
 .careers-card .list-unstyled li {
     color: #ffffff !important;
     font-weight: 500;
-}
-        display: none !important;
-    }
-    .floating-cta {
-        padding: 10px 12px;
-        right: 16px;
-        bottom: 20px;
-        font-size: 0.8rem;
-    }
 }
 
 /* Hero Section Styles */

@@ -429,3 +429,23 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+
+// Ensure correct active nav-link based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.querySelectorAll('.navbar .nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            const hrefFile = href.split('/').pop().toLowerCase();
+            if (hrefFile === path || (hrefFile === 'index.html' && (path === '' || path === 'index.html'))) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    } catch (e) {
+        // fail silently
+        console.warn('Nav active script error', e);
+    }
+});
