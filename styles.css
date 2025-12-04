@@ -395,6 +395,18 @@ h4 {
     display: none !important;
 }
 
+/* Contact Us button - show on mobile only */
+.btn-light.hero-btn {
+    display: none !important;
+}
+
+/* Show Contact Us button on mobile screens only (below 768px) */
+@media (max-width: 767.98px) {
+    .btn-light.hero-btn {
+        display: inline-flex !important;
+    }
+}
+
 
 
 section {
