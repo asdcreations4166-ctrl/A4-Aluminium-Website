@@ -378,7 +378,7 @@ h4 {
     color: #ffffff !important;
     transition: all 0.28s ease;
     margin-right: auto;
-    margin-left: 0;
+    margin-left: -3cm;
 }
 
 .navbar-brand:hover {
@@ -386,7 +386,7 @@ h4 {
 }
 
 .navbar-nav.ms-auto {
-    margin-right: 0 !important;
+    margin-right: -3cm !important;
     margin-left: auto;
 }
 
