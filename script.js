@@ -363,4 +363,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // fail silently
         console.warn('Nav active script error', e);
     }
+    // If redirected to contact.html with success query, show success in #result
+    try {
+        const urlParams = new URLSearchParams(location.search);
+        if (urlParams.get('success') === 'true') {
+            const resultDiv = document.getElementById('result');
+            if (resultDiv) {
+                resultDiv.className = 'alert alert-success';
+                resultDiv.innerText = 'Thanks! Your message was submitted successfully.';
+                resultDiv.classList.remove('d-none');
+            }
+        }
+    } catch (e) {
+        // ignore silently
+    }
 });
