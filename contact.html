@@ -67,11 +67,17 @@
             <div class="row g-4 mb-5">
                 <div class="col-lg-6">
                     <h3 class="mb-4">Send us a Message</h3>
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="a3bc7b45-e348-40a9-8e01-1e014a8cd812">
+                        <!-- Redirect after submission -->
+                        <input type="hidden" name="redirect" value="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/contact.html?success=true">
+                        <!-- Email notifications -->
+                        <input type="hidden" name="from_name" value="A4 Aluminium Contact Form">
+                        
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Your name" pattern="^[A-Za-z\s]{2,100}$" required>
-                            <small class="text-muted">Letters and spaces only</small>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
@@ -80,13 +86,17 @@
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone Number</label>
                             <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 your number" pattern="^\+?[\d\s]{7,15}$" required>
-                            <small class="text-muted">+ and digits only</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="What is this about?" required>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
                             <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message..." minlength="5" maxlength="1000" required></textarea>
-                            <small class="text-muted">5-1000 characters</small>
                         </div>
+                        <!-- Result area for success/error messages -->
+                        <div id="result" class="alert d-none mt-3" role="alert" aria-live="polite"></div>
                         <button type="submit" class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
@@ -141,6 +151,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>

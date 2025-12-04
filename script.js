@@ -22,124 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Enhanced contact form handling with stricter validation and realtime sanitization
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        // Inputs
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
-        const messageInput = document.getElementById('message');
-
-        // Realtime sanitization: remove disallowed characters as user types
-        if (nameInput) {
-            nameInput.addEventListener('input', (e) => {
-                const sanitized = e.target.value.replace(/[^A-Za-z\s]/g, '');
-                if (sanitized !== e.target.value) e.target.value = sanitized;
-            });
-            nameInput.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const text = (e.clipboardData || window.clipboardData).getData('text') || '';
-                e.target.value = text.replace(/[^A-Za-z\s]/g, '').slice(0, 100);
-            });
-        }
-
-        if (emailInput) {
-            // allow typical email characters only while typing
-            emailInput.addEventListener('input', (e) => {
-                const sanitized = e.target.value.replace(/[^A-Za-z0-9@._%+\-]/g, '');
-                if (sanitized !== e.target.value) e.target.value = sanitized;
-            });
-        }
-
-        if (phoneInput) {
-            phoneInput.addEventListener('input', (e) => {
-                // allow only + and digits, ensure single leading +
-                let v = e.target.value.replace(/[^0-9+]/g, '');
-                // move any + to start and keep only first +
-                const plus = v.indexOf('+') !== -1;
-                v = v.replace(/\+/g, '');
-                if (plus) v = '+' + v;
-                e.target.value = v;
-            });
-            phoneInput.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const text = (e.clipboardData || window.clipboardData).getData('text') || '';
-                let v = text.replace(/[^0-9+]/g, '');
-                const plus = v.indexOf('+') !== -1;
-                v = v.replace(/\+/g, '');
-                if (plus) v = '+' + v;
-                e.target.value = v.slice(0, 16);
-            });
-        }
-
-        if (messageInput) {
-            messageInput.setAttribute('maxlength', '1000');
-            messageInput.addEventListener('input', (e) => {
-                // keep within limit
-                if (e.target.value.length > 1000) e.target.value = e.target.value.slice(0, 1000);
-            });
-        }
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = nameInput ? nameInput.value.trim() : '';
-            const email = emailInput ? emailInput.value.trim() : '';
-            const phone = phoneInput ? phoneInput.value.trim() : '';
-            const message = messageInput ? messageInput.value.trim() : '';
-
-            // Basic required validation
-            if (!name || !email || !phone || !message) {
-                showNotification('Please fill in all required fields', 'error');
-                return;
-            }
-
-            // Name: only letters and spaces, 2-100 chars
-            const nameRegex = /^[A-Za-z\s]{2,100}$/;
-            if (!nameRegex.test(name)) {
-                showNotification('Name must contain only letters and spaces (2-100 chars).', 'error');
-                return;
-            }
-
-            // Email validation
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');
-                return;
-            }
-
-            // Phone validation
-            if (!isValidPhone(phone)) {
-                showNotification('Please enter a valid phone number (only + and digits).', 'error');
-                return;
-            }
-
-            // Message length
-            if (message.length < 5 || message.length > 1000) {
-                showNotification('Message must be between 5 and 1000 characters.', 'error');
-                return;
-            }
-
-            // Show loading state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn ? submitBtn.innerHTML : '';
-            if (submitBtn) {
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-                submitBtn.disabled = true;
-            }
-
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                showNotification(`Thank you! We will call you at ${phone} shortly.`, 'success');
-                contactForm.reset();
-                if (submitBtn) {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            }, 1200);
-        });
-    }
-
     // Smooth scrolling for navigation links with offset for fixed navbar
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
@@ -328,52 +210,79 @@ document.addEventListener('DOMContentLoaded', function() {
             heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
         }
     });
+
+    // Web3Forms Contact Form (AJAX) handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const resultDiv = document.getElementById('result');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+            if (resultDiv) {
+                resultDiv.className = 'alert d-none';
+                resultDiv.innerText = '';
+                resultDiv.setAttribute('aria-hidden', 'true');
+            }
+
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors',
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                // Some responses might not return JSON; attempt to parse safely
+                let data = null;
+                try { data = await response.json(); } catch (err) { /* ignore */ }
+
+                if (response.ok) {
+                    if (resultDiv) {
+                        resultDiv.className = 'alert alert-success';
+                        resultDiv.innerText = (data && data.message) ? data.message : 'Thanks! Your message was sent successfully.';
+                        resultDiv.setAttribute('aria-hidden', 'false');
+                        // Remove d-none if present
+                        resultDiv.classList.remove('d-none');
+                    } else {
+                        alert('Thanks! Your message was sent successfully.');
+                    }
+                    // Clear form fields
+                    contactForm.reset();
+
+                    // If redirect is provided, navigate there after a short delay
+                    const redirectInput = contactForm.querySelector('input[name="redirect"]');
+                    if (redirectInput && redirectInput.value) {
+                        setTimeout(() => { window.location.href = redirectInput.value; }, 1200);
+                    }
+                } else {
+                    const errMsg = (data && data.message) ? data.message : 'An error occurred while sending your message. Please try again.';
+                    if (resultDiv) {
+                        resultDiv.className = 'alert alert-danger';
+                        resultDiv.innerText = errMsg;
+                        resultDiv.setAttribute('aria-hidden', 'false');
+                        resultDiv.classList.remove('d-none');
+                    } else {
+                        alert(errMsg);
+                    }
+                }
+            } catch (err) {
+                console.error('Contact form submit error', err);
+                if (resultDiv) {
+                    resultDiv.className = 'alert alert-danger';
+                    resultDiv.innerText = 'Connection error. Please try again later.';
+                    resultDiv.classList.remove('d-none');
+                    resultDiv.setAttribute('aria-hidden', 'false');
+                } else {
+                    alert('Connection error. Please try again later.');
+                }
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+            }
+        });
+    }
 });
-
-// Utility functions
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function isValidPhone(phone) {
-    // Basic phone validation: allow leading + and digits; ensure 7-15 digits
-    if (!phone) return false;
-    // plus only allowed at start
-    if ((phone.match(/\+/g) || []).length > 1) return false;
-    if (phone.indexOf('+') > 0) return false;
-    const digits = phone.replace(/[^0-9]/g, '');
-    return digits.length >= 7 && digits.length <= 15;
-}
-
-function showNotification(message, type) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `alert alert-${type === 'success' ? 'success' : 'danger'} notification`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
-        ${message}
-    `;
-
-    // Add to page
-    document.body.appendChild(notification);
-
-    // Position at top
-    notification.style.position = 'fixed';
-    notification.style.top = '20px';
-    notification.style.right = '20px';
-    notification.style.zIndex = '9999';
-    notification.style.maxWidth = '400px';
-    notification.style.borderRadius = '8px';
-    notification.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    notification.style.border = 'none';
-
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => notification.remove(), 300);
-    }, 5000);
-}
 
 function animateCounter(element, start, end, duration) {
     const startTime = performance.now();
