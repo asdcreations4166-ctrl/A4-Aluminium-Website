@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - A4 Aluminium Centre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-cube me-2"></i><span class="brand-gold">A4</span> Aluminium Centre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vision.html"><i class="fas fa-binoculars me-1"></i>Vision</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box me-1"></i>Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="works.html"><i class="fas fa-briefcase me-1"></i>Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hiring.html"><i class="fas fa-user-tie me-1"></i>Hiring</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section py-5">
+        <div class="container px-3 px-md-0">
+            <h1 class="section-title text-center mb-5">Get In Touch With Us</h1>
+            <p class="section-subtitle text-center mb-5">We're here to help and answer any questions you might have</p>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="contact-info card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Nilambur Branch</h5>
+                            <p class="card-text small text-muted">123 Market Street, Nilambur, Kerala 679330</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-phone fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Phone</h5>
+                            <p class="card-text small text-muted"><a href="tel:+919496612460" class="text-white">+91 94966 12460</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Email</h5>
+                            <p class="card-text small text-muted"><a href="mailto:info@a4aluminium.com" class="text-white">info@a4aluminium.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Send us a Message</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your name" pattern="^[A-Za-z\s]{2,100}$" required>
+                            <small class="text-muted">Letters and spaces only</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 your number" pattern="^\+?[\d\s]{7,15}$" required>
+                            <small class="text-muted">+ and digits only</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message..." minlength="5" maxlength="1000" required></textarea>
+                            <small class="text-muted">5-1000 characters</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Our Locations</h3>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-map-pin text-primary me-2"></i>Nilambur Office</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.8473903146197!2d75.92970761198314!3d11.358836988850426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba447ae93e3e001%3A0x1234567890abcdef!2sNilambur%2C%20Malappuram%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890" class="embed-map" allowfullscreen="" loading="lazy" title="Nilambur Office Location"></iframe>
+                    </div>
+                    <div>
+                        <h5><i class="fas fa-map-pin text-primary me-2"></i>Mankada Office</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.1502906458656!2d75.98162541198297!3d11.324506088862738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43d5e9e9e9e9d%3A0x1234567890abcdef!2sMankada%2C%20Malappuram%2C%20Kerala!5e0!3m2!1sen!2sin!4v1234567890" class="embed-map" allowfullscreen="" loading="lazy" title="Mankada Office Location"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" id="backToTop" class="btn btn-primary" title="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+    <button id="floatingCallback" class="floating-cta" aria-label="Request a call back">
+        <i class="fas fa-phone"></i>
+        <span class="d-none d-md-inline ms-2">Request a call back</span>
+    </button>
+
+    <footer class="footer py-5">
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-cube me-2 text-primary"></i><span class="brand-gold">A4</span> Aluminium</h5>
+                    <p class="text-muted small">Premium quality aluminium products and services for Kerala.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="works.html">Our Works</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/__a4_aluminium_" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Follow us on Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://wa.me/9496612460" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Contact us on WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-secondary my-4">
+        <p class="text-center text-muted small mb-0">@ 2026 A4 Aluminium. All rights reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

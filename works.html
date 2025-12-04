@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Works - A4 Aluminium Centre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-cube me-2"></i><span class="brand-gold">A4</span> Aluminium Centre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vision.html"><i class="fas fa-binoculars me-1"></i>Vision</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box me-1"></i>Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="works.html"><i class="fas fa-briefcase me-1"></i>Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hiring.html"><i class="fas fa-user-tie me-1"></i>Hiring</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="works-section py-5">
+        <div class="container px-3 px-md-0">
+            <h1 class="section-title text-center mb-5">Our Works & Projects</h1>
+            <p class="section-subtitle text-center mb-5">Showcase of completed projects and success stories</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="work-card card h-100 cursor-pointer" onclick="openLightbox(this)">
+                        <div class="work-image">
+                            <i class="fas fa-building fa-5x"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-camera me-2"></i>Commercial Project 1</h5>
+                            <p class="card-text">Professional aluminium installation for commercial spaces.</p>
+                            <small class="text-muted">Click to view</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="work-card card h-100 cursor-pointer" onclick="openLightbox(this)">
+                        <div class="work-image">
+                            <i class="fas fa-home fa-5x"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-camera me-2"></i>Residential Project 1</h5>
+                            <p class="card-text">Premium aluminium solutions for modern homes.</p>
+                            <small class="text-muted">Click to view</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="work-card card h-100 cursor-pointer" onclick="openLightbox(this)">
+                        <div class="work-image">
+                            <i class="fas fa-store fa-5x"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-camera me-2"></i>Retail Project 1</h5>
+                            <p class="card-text">Innovative designs for retail environments.</p>
+                            <small class="text-muted">Click to view</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong>100+ Projects Completed</strong> - Trusted by businesses across Kerala
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" class="lightbox-content" src="" alt="">
+    </div>
+
+    <a href="#" id="backToTop" class="btn btn-primary" title="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+    <button id="floatingCallback" class="floating-cta" aria-label="Request a call back">
+        <i class="fas fa-phone"></i>
+        <span class="d-none d-md-inline ms-2">Request a call back</span>
+    </button>
+
+    <footer class="footer py-5">
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-cube me-2 text-primary"></i><span class="brand-gold">A4</span> Aluminium</h5>
+                    <p class="text-muted small">Premium quality aluminium products and services for Kerala.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="works.html">Our Works</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/__a4_aluminium_" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Follow us on Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://wa.me/9496612460" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Contact us on WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-secondary my-4">
+        <p class="text-center text-muted small mb-0">@ 2026 A4 Aluminium. All rights reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
