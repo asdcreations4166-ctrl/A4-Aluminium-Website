@@ -390,6 +390,11 @@ h4 {
     margin-left: auto;
 }
 
+/* Hide Home link on home page */
+.home-link-index {
+    display: none !important;
+}
+
 
 
 section {
