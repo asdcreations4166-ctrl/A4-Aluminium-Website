@@ -247,10 +247,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 let data = null;
                 try { data = await response.json(); } catch (err) { /* ignore */ }
 
-                if (response.ok) {
+                // Determine success robustly: response.ok plus data.success if present. Web3Forms may return { success: true }
+                const dataHasSuccess = data && (Object.prototype.hasOwnProperty.call(data, 'success') || Object.prototype.hasOwnProperty.call(data, 'status'));
+                const successFlag = response.ok && (!dataHasSuccess || data.success === true || data.success === 'true' || data.status === 'success' || data.result === 'success');
+
+                if (successFlag) {
                     if (resultDiv) {
                         resultDiv.className = 'alert alert-success';
-                        resultDiv.innerText = (data && data.message) ? data.message : 'Thanks! Your message was sent successfully.';
+                        // Prefer server message at data.message, otherwise fall back
+                        if (data && typeof data.message === 'string' && data.message.trim().length > 0) {
+                            resultDiv.innerText = data.message;
+                        } else {
+                            resultDiv.innerText = 'Thanks! Your message was sent successfully.';
+                        }
                         resultDiv.setAttribute('aria-hidden', 'false');
                         // Remove d-none if present
                         resultDiv.classList.remove('d-none');

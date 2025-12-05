@@ -1,5 +1,13 @@
 /* Minimal ultra style: includes preloader styles to match the default site */
 
+/* Brand variables for ultra layout */
+:root {
+    --brand-gold: #d4af37;
+    --brand-gold-strong: rgba(212,175,55,0.95);
+    --brand-gold-soft: rgba(212,175,55,0.06);
+    --bg-ultra-ivory: #fffaf5;
+}
+
 /* Preloader overlay with centered logo (white background) */
 #preloader {
     position: fixed;
@@ -9,8 +17,9 @@
     justify-content: center;
     z-index: 9999;
     transition: opacity 0.6s ease, visibility 0.6s ease;
-    /* Balanced, premium ivory gradient for ultra layout */
-    background: radial-gradient(1000px 1000px at 50% 40%, #fffaf5 0%, #fff6ec 50%, #fff1e3 100%);
+    /* Premium ivory / champagne background to amplify luxury for ultra layout */
+    background: radial-gradient(900px 900px at 50% 40%, rgba(212,175,55,0.06) 0%, #fffaf5 18%, #fff6eb 55%, #fff1e3 100%),
+                linear-gradient(180deg, rgba(255,250,245,1) 0%, rgba(255,246,238,1) 100%);
 }
 #preloader::before {
     content: "";
@@ -23,13 +32,14 @@
     mix-blend-mode: overlay;
 }
 
+/* Soft vignette for subtle focus */
 #preloader::after {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 1000;
     pointer-events: none;
-    background: radial-gradient(60% 60% at 50% 42%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 65%, rgba(0,0,0,0.06) 100%);
+    background: radial-gradient(60% 60% at 50% 42%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.08) 100%);
 }
 
 #preloader[aria-hidden="true"],
@@ -132,6 +142,53 @@
 /* Subtle screen-reader friendly label */
 .preloader-text {
     margin-top: 12px;
-    color: #333333;
+    color: rgba(20,17,14,0.9);
     font-weight: 600;
+}
+
+/* Logo badge for ultra pages matching premium ivory colors */
+.navbar-brand .logo-img {
+    height: 36px;
+    padding: 6px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
+    display: inline-block;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* Inline SVG wrapper sizing and ring/highlight animations for Ultra pages */
+.preloader-svg-wrapper {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    width: 9cm;
+    height: 9cm;
+    max-width: 92vw;
+    max-height: 92vh;
+    margin: 0 auto;
+}
+
+.preloader-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;
+}
+
+.preloader-ring {
+    transform-origin: 120px 120px;
+    stroke-dasharray: 16 520;
+    stroke-dashoffset: 0;
+    animation: preloader-ring-rotate 6.4s linear infinite, preloader-ring-dash 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.preloader-highlight {
+    mix-blend-mode: screen;
+    opacity: 0.0;
+    animation: preloader-highlight-sweep 2.8s linear infinite;
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader-ring, .preloader-highlight { animation: none !important; opacity: 1; }
 }
