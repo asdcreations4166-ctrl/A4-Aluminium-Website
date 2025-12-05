@@ -20,11 +20,16 @@
 
 .preloader-content {
     text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
 }
 
 .preloader-logo {
     height: 8cm;
     width: 8cm;
+    max-width: 92vw;
+    max-height: 92vh;
     width: auto;
     display: inline-block;
     object-fit: contain;
@@ -43,8 +48,38 @@
 
 .preloader-logo {
     animation: preloader-blink-ultra 3s ease-in-out infinite;
+    border-radius: 0.36cm;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+}
+
+/* Decorative background circle behind the logo for ultra style */
+.preloader-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 9cm;
+    height: 9cm;
     border-radius: 50%;
-    object-fit: cover;
+    background: radial-gradient(circle at 35% 25%, rgba(212,175,55,0.22), rgba(212,175,55,0.38) 22%, rgba(255,255,255,0.08) 45%, rgba(0,0,0,0.02) 70%);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08), inset 0 2px 6px rgba(255,255,255,0.02);
+    will-change: transform, opacity;
+    animation: preloader-circle-pulse-ultra 4.5s ease-in-out infinite;
+}
+
+@keyframes preloader-circle-pulse-ultra {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+    50% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.85; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader-logo, .preloader-circle {
+        animation: none !important;
+    }
 }
 
 /* Subtle screen-reader friendly label */
