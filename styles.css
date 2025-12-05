@@ -133,8 +133,8 @@ h4 {
 /* Shajahan-specific positioning: prioritize face visibility inside circle */
 .partner-frame .partner-img.shajahan-shift {
     /* Use percentage-based vertical alignment so head shows fully.
-       Move image to 4 o'clock position (right and down). */
-    object-position: 60% 55%;
+       Move image to 11 o'clock position (left and up). */
+    object-position: 40% 25%;
     /* Slightly increase cover area so there's less chance of head being clipped */
     transform-origin: center center;
 }
