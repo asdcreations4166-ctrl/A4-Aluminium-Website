@@ -13,7 +13,25 @@
     <div id="preloader" aria-hidden="false">
         <div class="preloader-content">
             <span class="preloader-circle" aria-hidden="true"></span>
-            <img src="assets/logo-a44.png" alt="A4 Aluminium logo" class="preloader-logo" loading="eager" decoding="async">
+            <!-- Inline SVG preloader to provide crisp rendering, animated ring, and glossy highlight -->
+            <span class="preloader-svg-wrapper" aria-hidden="true">
+                <svg class="preloader-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A4 Aluminium logo">
+                    <desc>A4 Aluminium logo mark — large center branding emblem for preloader</desc>
+                    <defs>
+                        <linearGradient id="shineGrad" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.28)" />
+                            <stop offset="50%" stop-color="rgba(255,255,255,0.06)" />
+                            <stop offset="100%" stop-color="rgba(255,255,255,0.28)" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Ring stroke for animated activity -->
+                    <circle class="preloader-ring" cx="120" cy="120" r="86" fill="none" stroke="var(--brand-gold-strong)" stroke-width="6" stroke-linecap="round" />
+                    <!-- Embedded PNG logo for now - recommendation: replace with vector path if available -->
+                    <image href="assets/logo-a44.png" x="25" y="25" width="190" height="190" preserveAspectRatio="xMidYMid meet" />
+                    <!-- Glossy highlight overlay (animated) -->
+                    <rect class="preloader-highlight" x="0" y="0" width="240" height="240" fill="url(#shineGrad)" opacity="0.0" transform="translate(-240,0) rotate(-15 120 120)"/>
+                </svg>
+            </span>
             <div class="preloader-text visually-hidden">Loading A4 Aluminium</div>
         </div>
     </div>
