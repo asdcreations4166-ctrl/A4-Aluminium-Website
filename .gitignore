@@ -8,17 +8,112 @@ env/
 venv/
 ENV/
 
-# IDE
+# Dependencies & Packages
+node_modules/
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
+pnpm-lock.yaml
+
+# IDE & Editor files
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
 Thumbs.db
+.editorconfig
 
-# Project specific
-.continue/
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+
+# Build & dist
+dist/
+build/
+out/
+.cache/
+.parcel-cache
+.next
+out/
+.turbo
+
+# Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+debug.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+~*
+*.orig
+
+# IDE specific
+.vscode/settings.json
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# Testing
+.nyc_output/
+coverage/
+.jest/
+*.lcov
+
+# Misc
+.cache
+.eslintcache
+.stylelintcache
+*.tgz
+.yarn/install-state.gz
+.pnp.*
+.husky/
+
+# System
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Local development
+.tern-port
+.vercel
+.netlify
+
+# Build artifacts
+*.min.js
+*.min.css
+*.gz

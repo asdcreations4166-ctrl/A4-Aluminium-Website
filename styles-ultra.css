@@ -179,14 +179,34 @@
     transform-origin: 120px 120px;
     stroke-dasharray: 16 520;
     stroke-dashoffset: 0;
-    animation: preloader-ring-rotate 6.4s linear infinite, preloader-ring-dash 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    /* slower and smoother for ultra page */
+    animation: preloader-ring-rotate 14s linear infinite, preloader-ring-dash 4.0s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .preloader-highlight {
     mix-blend-mode: screen;
     opacity: 0.0;
-    animation: preloader-highlight-sweep 2.8s linear infinite;
+    animation: preloader-highlight-sweep 5s linear infinite;
     will-change: transform, opacity;
+    filter: blur(12px);
+}
+
+@keyframes preloader-ring-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes preloader-ring-dash {
+    0% { stroke-dasharray: 16 520; stroke-dashoffset: 0; }
+    50% { stroke-dasharray: 280 120; stroke-dashoffset: -160; }
+    100% { stroke-dasharray: 16 520; stroke-dashoffset: -480; }
+}
+
+@keyframes preloader-highlight-sweep {
+    0% { transform: translateX(-260px) rotate(-15deg); opacity: 0.0; }
+    24% { opacity: 0.5; }
+    50% { opacity: 0.5; }
+    100% { transform: translateX(260px) rotate(-15deg); opacity: 0.0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

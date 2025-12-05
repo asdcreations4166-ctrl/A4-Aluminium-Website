@@ -1,0 +1,22 @@
+# A4 Aluminium - robots.txt
+User-agent: *
+Allow: /
+Allow: /index-ultra-professional.html
+Allow: /products.html
+Allow: /careers.html
+Allow: /assets/
+
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/sitemap.xml

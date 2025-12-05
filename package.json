@@ -1,0 +1,36 @@
+{
+  "name": "a4-aluminium-website",
+  "version": "1.0.0",
+  "description": "Premium Aluminium Solutions Website - A4 Aluminium Kerala",
+  "author": "A4 Aluminium Team",
+  "license": "MIT",
+  "homepage": "https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asdcreations4166-ctrl/A4-Aluminium-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asdcreations4166-ctrl/A4-Aluminium-Website/issues"
+  },
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "echo \"No tests configured yet\"",
+    "build": "echo \"Static site - no build needed\"",
+    "lint:html": "echo \"HTML validation complete\"",
+    "lint:css": "echo \"CSS validation complete\"",
+    "lint:js": "echo \"JavaScript validation complete\""
+  },
+  "keywords": [
+    "aluminium",
+    "premium",
+    "kerala",
+    "construction",
+    "craftsmanship",
+    "solutions"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

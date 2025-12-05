@@ -6,15 +6,43 @@
     <title>A4 Aluminium - Premium Aluminium Solutions</title>
     <meta name="description" content="Leading premium aluminium supplier in Kerala. Excellence in craftsmanship, innovation, and customer satisfaction.">
     <meta name="keywords" content="premium aluminium, Kerala, craftsmanship, innovation, A4 Aluminium">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/">
+    <meta property="og:title" content="A4 Aluminium - Premium Aluminium Solutions">
+    <meta property="og:description" content="Leading premium aluminium supplier in Kerala. Excellence in craftsmanship, innovation, and customer satisfaction.">
+    <meta property="og:image" content="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/assets/shop.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/">
+    <meta property="twitter:title" content="A4 Aluminium - Premium Aluminium Solutions">
+    <meta property="twitter:description" content="Leading premium aluminium supplier in Kerala. Excellence in craftsmanship, innovation, and customer satisfaction.">
+    <meta property="twitter:image" content="https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/assets/shop.png">
+    
+    <!-- Author & Copyright -->
+    <meta name="author" content="A4 Aluminium">
+    <meta name="copyright" content="Copyright 2024 A4 Aluminium">
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles-ultra.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-    </style>
+    <link rel="icon" href="assets/logo-a44.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader -->
@@ -48,7 +76,7 @@
                 <span class="brand-text-primary">A4</span>
                 <span class="brand-text-secondary">Aluminium</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -131,7 +159,7 @@
                     <div class="col-lg-5">
                         <div class="hero-visual animate__animated animate__fadeInRight animate__delay-2s">
                             <div class="hero-image-container">
-                                <img src="shop.png" alt="A4 Aluminium Excellence" class="hero-image">
+                                <img src="assets/shop.png" alt="A4 Aluminium Excellence" class="hero-image">
                                 <div class="hero-image-overlay"></div>
 
                                 <!-- Floating Luxury Cards -->
@@ -237,13 +265,13 @@
                     <div class="excellence-visual">
                         <div class="image-mosaic">
                             <div class="mosaic-item large">
-                                <img src="placeholder-work1.jpg" alt="Precision Work" class="img-fluid">
+                                <img src="assets/placeholder-work1.jpg" alt="Precision Work" class="img-fluid" loading="lazy" decoding="async">
                             </div>
                             <div class="mosaic-item medium">
-                                <img src="placeholder-work2.jpg" alt="Quality Control" class="img-fluid">
+                                <img src="assets/placeholder-work2.jpg" alt="Quality Control" class="img-fluid" loading="lazy" decoding="async">
                             </div>
                             <div class="mosaic-item small">
-                                <img src="placeholder-work3.jpg" alt="Expert Team" class="img-fluid">
+                                <img src="assets/placeholder-work3.jpg" alt="Expert Team" class="img-fluid" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -253,13 +281,13 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="leadership" class="leadership-section">
+    <section id="leadership" class="leadership-section" role="region" aria-labelledby="leadership-heading">
         <div class="container-fluid px-5">
             <div class="text-center mb-5">
                 <div class="section-pretitle">
                     <span>Our Visionaries</span>
                 </div>
-                <h2 class="section-title-luxury">Leadership Excellence</h2>
+                <h2 id="leadership-heading" class="section-title-luxury">Leadership Excellence</h2>
                 <p class="section-description">
                     Meet the distinguished leaders who guide A4 Aluminium toward continued innovation and excellence
                 </p>
@@ -395,7 +423,7 @@
                             <i class="fas fa-square"></i>
                         </div>
                         <div class="solution-image">
-                            <img src="placeholder-product1.jpg" alt="Sheets" class="img-fluid">
+                            <img src="assets/placeholder-product1.jpg" alt="Sheets" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="solution-content">
@@ -419,7 +447,7 @@
                             <i class="fas fa-circle"></i>
                         </div>
                         <div class="solution-image">
-                            <img src="placeholder-product2.jpg" alt="Pipes" class="img-fluid">
+                            <img src="assets/placeholder-product2.jpg" alt="Pipes" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="solution-content">
@@ -443,7 +471,7 @@
                             <i class="fas fa-cubes"></i>
                         </div>
                         <div class="solution-image">
-                            <img src="placeholder-product3.jpg" alt="Profiles" class="img-fluid">
+                            <img src="assets/placeholder-product3.jpg" alt="Profiles" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="solution-content">
@@ -472,13 +500,13 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-luxury">
+    <section id="testimonials" class="testimonials-luxury" role="region" aria-labelledby="testimonials-heading">
         <div class="container-fluid px-5">
             <div class="text-center mb-5">
                 <div class="section-pretitle">
                     <span>Client Testimonials</span>
                 </div>
-                <h2 class="section-title-luxury">Trusted by Industry Leaders</h2>
+                <h2 id="testimonials-heading" class="section-title-luxury">Trusted by Industry Leaders</h2>
                 <p class="section-description">
                     Hear from our distinguished clients about their experience with A4 Aluminium
                 </p>
@@ -601,7 +629,7 @@
                                 <div class="method-info">
                                     <h4>Instant Communication</h4>
                                     <p>Quick responses via WhatsApp</p>
-                                    <a href="https://wa.me/9496612460" target="_blank" class="method-link">Chat Now</a>
+                                    <a href="https://wa.me/9496612460" target="_blank" rel="noopener noreferrer" class="method-link">Chat Now</a>
                                 </div>
                             </div>
 
@@ -620,11 +648,11 @@
                         <div class="connect-locations">
                             <h4>Our Locations</h4>
                             <div class="locations-grid">
-                                <a href="https://maps.app.goo.gl/V5nEVCMaCs3dq4A2A" target="_blank" class="location-link">
+                                <a href="https://maps.app.goo.gl/V5nEVCMaCs3dq4A2A" target="_blank" rel="noopener noreferrer" class="location-link">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <span>Primary Facility</span>
                                 </a>
-                                <a href="https://maps.app.goo.gl/DjvXYN6Cwg4StABG6" target="_blank" class="location-link">
+                                <a href="https://maps.app.goo.gl/DjvXYN6Cwg4StABG6" target="_blank" rel="noopener noreferrer" class="location-link">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <span>Secondary Location</span>
                                 </a>
@@ -636,6 +664,8 @@
                 <div class="col-lg-6">
                     <div class="connect-form-container">
                         <form id="luxuryContactForm" class="connect-form">
+                            <!-- Web3Forms access key -->
+                            <input type="hidden" name="access_key" value="a3bc7b45-e348-40a9-8e01-1e014a8cd812">
                             <div class="form-header">
                                 <h3>Start Your Project</h3>
                                 <p>Tell us about your vision</p>
@@ -701,11 +731,13 @@
                             </div>
 
                             <div class="form-actions">
-                                <button type="submit" class="btn btn-luxury-primary btn-lg w-100">
-                                    <i class="fas fa-paper-plane me-2"></i>
-                                    <span>Submit Inquiry</span>
-                                </button>
-                            </div>
+                                 <button type="submit" class="btn btn-luxury-primary btn-lg w-100">
+                                     <i class="fas fa-paper-plane me-2"></i>
+                                     <span>Submit Inquiry</span>
+                                 </button>
+                             </div>
+
+                            <div id="luxuryResult" class="alert d-none mt-3" role="alert" aria-live="polite" aria-atomic="true"></div>
 
                             <div class="form-footer">
                                 <p>By submitting this form, you agree to our privacy policy and terms of service.</p>
@@ -778,16 +810,16 @@
                     <div class="footer-social">
                         <h6>Follow Our Journey</h6>
                         <div class="social-links-luxury">
-                            <a href="#" class="social-link-luxury">
+                            <a href="https://www.linkedin.com/company/a4-aluminium" target="_blank" rel="noopener noreferrer" aria-label="A4 Aluminium on LinkedIn" class="social-link-luxury">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="social-link-luxury">
+                            <a href="https://www.instagram.com/a4aluminium" target="_blank" rel="noopener noreferrer" aria-label="A4 Aluminium on Instagram" class="social-link-luxury">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="social-link-luxury">
+                            <a href="https://www.facebook.com/a4aluminium" target="_blank" rel="noopener noreferrer" aria-label="A4 Aluminium on Facebook" class="social-link-luxury">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="social-link-luxury">
+                            <a href="https://www.twitter.com/a4aluminium" target="_blank" rel="noopener noreferrer" aria-label="A4 Aluminium on Twitter" class="social-link-luxury">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -813,11 +845,73 @@
     </footer>
 
     <!-- Back to Top -->
-    <button id="backToTopLuxury" class="back-to-top-luxury">
+    <button id="backToTopLuxury" class="back-to-top-luxury" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script-ultra.js"></script>
+    <script>
+        // AJAX form submission for luxury contact form
+        const luxuryForm = document.getElementById('luxuryContactForm');
+        const luxuryResult = document.getElementById('luxuryResult');
+        const submitBtn = luxuryForm.querySelector('button[type="submit"]');
+
+        luxuryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Disable submit button to prevent double submission
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i><span>Submitting...</span>';
+
+            const formData = new FormData(luxuryForm);
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            
+            luxuryResult.classList.remove('d-none', 'alert-success', 'alert-danger');
+            luxuryResult.classList.add('alert-info');
+            luxuryResult.innerHTML = '<i class="fas fa-info-circle me-2"></i>Submitting your inquiry, please wait...';
+
+            fetch('https://api.web3-forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json,
+                    timeout: 10000
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    luxuryResult.classList.remove('alert-info');
+                    if (response.status == 200) {
+                        luxuryResult.classList.add('alert-success');
+                        luxuryResult.innerHTML = '<i class="fas fa-check-circle me-2"></i>' + (jsonResponse.message || "Your inquiry has been sent successfully!");
+                    } else {
+                        console.error(response);
+                        luxuryResult.classList.add('alert-danger');
+                        luxuryResult.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>' + (jsonResponse.message || "Sorry, something went wrong.");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    luxuryResult.classList.remove('alert-info');
+                    luxuryResult.classList.add('alert-danger');
+                    luxuryResult.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>Connection error. Please try again or contact us directly.';
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i><span>Submit Inquiry</span>';
+                    luxuryForm.reset();
+                    setTimeout(() => {
+                        luxuryResult.classList.add('d-none');
+                        luxuryResult.innerHTML = '';
+                    }, 8000);
+                });
+        });
+    </script>
 </body>
 </html>

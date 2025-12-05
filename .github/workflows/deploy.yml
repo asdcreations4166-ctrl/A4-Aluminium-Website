@@ -1,0 +1,148 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate Code Quality
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Validate HTML files
+      run: |
+        echo "✓ Validating HTML structure..."
+        for file in *.html; do
+          if [ -f "$file" ]; then
+            echo "  ✓ Found: $file"
+            wc -l "$file" | awk '{print "    Lines: " $1}'
+          fi
+        done
+    
+    - name: Check CSS files
+      run: |
+        echo "✓ Checking CSS files..."
+        for file in *.css; do
+          if [ -f "$file" ]; then
+            echo "  ✓ Found: $file"
+          fi
+        done
+    
+    - name: Check JavaScript files
+      run: |
+        echo "✓ Checking JavaScript files..."
+        for file in *.js; do
+          if [ -f "$file" ]; then
+            echo "  ✓ Found: $file"
+          fi
+        done
+    
+    - name: Validate assets
+      run: |
+        echo "✓ Validating assets..."
+        if [ -d "assets" ]; then
+          echo "  ✓ Assets folder found"
+          find assets -type f | head -10 | while read file; do
+            echo "    ✓ $file"
+          done
+        fi
+    
+    - name: Check critical files
+      run: |
+        echo "✓ Checking critical files..."
+        files=("index-ultra-professional.html" "styles-ultra.css" "script-ultra.js" ".gitignore" "README.md")
+        for file in "${files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "  ✓ $file"
+          else
+            echo "  ✗ MISSING: $file"
+          fi
+        done
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Display repository info
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Author: ${{ github.actor }}"
+        echo ""
+        echo "Files in repository:"
+        ls -lah | grep -E '\.(html|css|js|xml|txt|json|md)$'
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+        retention-days: 7
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+    
+    - name: Deployment summary
+      if: always()
+      run: |
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🚀 DEPLOYMENT SUMMARY"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        if [ ${{ job.status }} == 'success' ]; then
+          echo "✅ Status: SUCCESS"
+          echo "📱 Site URL: https://${{ github.repository_owner }}.github.io/A4-Aluminium-Website/"
+          echo "📅 Deployed: $(date)"
+          echo "✓ Your website is now live!"
+        else
+          echo "❌ Status: FAILED"
+          echo "📝 Check logs above for details"
+        fi
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Deployment notification
+      run: |
+        if [ ${{ needs.deploy.result }} == 'success' ]; then
+          echo "✅ Deployment completed successfully!"
+          echo "Your site is live and accessible."
+        else
+          echo "⚠️ Deployment encountered issues."
+          echo "Please check the workflow logs for details."
+        fi

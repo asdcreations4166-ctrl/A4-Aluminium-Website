@@ -1704,7 +1704,8 @@ section.loading {
     transform-origin: 120px 120px;
     stroke-dasharray: 16 520;
     stroke-dashoffset: 0;
-    animation: preloader-ring-rotate 6.4s linear infinite, preloader-ring-dash 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    /* Slower, more subtle rotation */
+    animation: preloader-ring-rotate 12s linear infinite, preloader-ring-dash 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes preloader-ring-rotate {
@@ -1721,14 +1722,16 @@ section.loading {
 .preloader-highlight {
     mix-blend-mode: screen;
     opacity: 0.0;
-    animation: preloader-highlight-sweep 2.8s linear infinite;
+    /* slower sweep and less obvious by default */
+    animation: preloader-highlight-sweep 4.6s linear infinite;
     will-change: transform, opacity;
+    filter: blur(10px);
 }
 
 @keyframes preloader-highlight-sweep {
     0% { transform: translateX(-260px) rotate(-15deg); opacity: 0.0; }
-    30% { opacity: 0.9; }
-    60% { opacity: 0.9; }
+    25% { opacity: 0.6; }
+    50% { opacity: 0.6; }
     100% { transform: translateX(260px) rotate(-15deg); opacity: 0.0; }
 }
 
