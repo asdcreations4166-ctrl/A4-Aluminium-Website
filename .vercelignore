@@ -1,0 +1,55 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE & Editor
+.vscode/
+.idea/
+.atom/
+.sublime-project
+.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.DS_Store?
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Documentation
+CONTRIBUTING.md
+GITHUB_SETUP.md
+VSCODE_GIT_GUIDE.md
+GIT_COMMANDS.md
+TERMINAL_COMMANDS.md
+DEPLOYMENT.md
+PERFORMANCE.md
+SECURITY.md
+*.md
+
+# Config files (not needed at runtime)
+.github/
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
