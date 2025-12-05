@@ -3,35 +3,27 @@
   "name": "a4-aluminium-website",
   "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": ".",
-  "public": true,
   "installCommand": "echo 'Static site - no npm dependencies'",
   "framework": null,
   "env": {
     "NODE_ENV": "production"
   },
-  "routes": [
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/humans.txt",
-      "dest": "/humans.txt"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index-ultra-professional.html",
-      "status": 200
-    }
-  ],
   "rewrites": [
     {
       "source": "/",
       "destination": "/index-ultra-professional.html"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/humans.txt",
+      "destination": "/humans.txt"
     }
   ],
   "headers": [
