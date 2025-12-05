@@ -132,7 +132,8 @@ h4 {
 
 /* Shift Shajahan image 0.5cm right and 0.5cm down */
 .partner-frame .partner-img.shajahan-shift {
-    object-position: calc(50% + 0.5cm) calc(50% + 0.5cm);
+    /* keep horizontal shift at 0.5cm, increase vertical shift to 0.8cm */
+    object-position: calc(50% + 0.5cm) calc(50% + 0.8cm);
 }
 
 .partner-card {
