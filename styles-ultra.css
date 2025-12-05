@@ -42,7 +42,7 @@
 }
 
 .preloader-logo {
-    animation: preloader-blink-ultra 2.4s ease-in-out infinite;
+    animation: preloader-blink-ultra 3s ease-in-out infinite;
     border-radius: 50%;
     object-fit: cover;
 }
