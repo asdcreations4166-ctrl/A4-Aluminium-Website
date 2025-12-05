@@ -151,7 +151,7 @@
     height: 36px;
     padding: 6px;
     border-radius: 10px;
-    background: linear-gradient(90deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
+    background: #ffffff;
     display: inline-block;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
 }
