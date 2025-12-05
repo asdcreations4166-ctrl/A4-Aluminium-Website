@@ -134,7 +134,7 @@ h4 {
 .partner-frame .partner-img.shajahan-shift {
     /* Use percentage-based vertical alignment so head shows fully.
        Adjust vertical percentage to move the image content inside the frame. */
-    object-position: 50% 38%;
+    object-position: 50% 28%;
     /* Slightly increase cover area so there's less chance of head being clipped */
     transform-origin: center center;
 }
