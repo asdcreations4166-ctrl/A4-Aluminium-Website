@@ -390,6 +390,20 @@ h4 {
     transform: scale(1.05);
 }
 
+/* Logo image sizing to replace icon; keep unobtrusive */
+.navbar-brand .logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-brand .logo-img { height: 28px; }
+}
+
 .navbar-nav.ms-auto {
     margin-right: -3cm !important;
     margin-left: auto;
