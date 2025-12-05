@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (preloader) {
         window.addEventListener('load', function() {
             setTimeout(() => {
+                // Use both inline styles and aria-hidden / class for cross-browser compatibility
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
+                preloader.setAttribute('aria-hidden', 'true');
+                preloader.classList.add('hidden');
             }, 1000);
         });
     }
