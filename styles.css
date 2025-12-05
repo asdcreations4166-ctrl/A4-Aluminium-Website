@@ -1598,7 +1598,8 @@ section.loading {
     width: 9cm;
     height: 9cm;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 25%, rgba(212,175,55,0.22), rgba(212,175,55,0.38) 22%, rgba(255,255,255,0.12) 45%, rgba(0,0,0,0.04) 70%);
+    /* Premium champagne/gold radial finish to contrast black logo */
+    background: radial-gradient(circle at 35% 25%, rgba(255,246,232,1) 0%, rgba(255,240,220,1) 15%, rgba(243,196,112,0.95) 36%, rgba(200,145,70,0.85) 70%, rgba(160,120,55,0.80) 100%);
     box-shadow: 0 10px 35px rgba(0,0,0,0.08), inset 0 2px 6px rgba(255,255,255,0.02);
     will-change: transform, opacity;
     animation: preloader-circle-pulse 4.5s ease-in-out infinite;
@@ -1608,6 +1609,33 @@ section.loading {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
     50% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.85; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+}
+
+/* Shiny sheen sweep across the gold background to make it premium */
+.preloader-circle::before {
+    content: "";
+    position: absolute;
+    left: -40%;
+    top: -40%;
+    width: 140%;
+    height: 140%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.26), rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.26));
+    transform: rotate(-20deg);
+    filter: blur(18px);
+    opacity: 0.8;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    will-change: transform;
+    animation: preloader-sheen 3.4s linear infinite;
+}
+
+@keyframes preloader-sheen {
+    0% { transform: translateX(-110%) rotate(-20deg); }
+    100% { transform: translateX(110%) rotate(-20deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader-circle::before { animation: none; transform: none; opacity: 0.7; }
 }
 
 /* Respect reduced-motion preferences */
