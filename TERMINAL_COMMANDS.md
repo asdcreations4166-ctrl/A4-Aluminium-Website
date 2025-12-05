@@ -248,4 +248,40 @@ git config user.email
 
 ---
 
+## PowerShell notes (Windows)
+
+PowerShell does not recognize the Bash `&&` operator. Use one of these options.
+
+- Quick single-line (chain with semicolons):
+```powershell
+git add vercel.json; git commit -m "Fix: valid header regex patterns for Vercel"; git push
+```
+
+- Safer, step-by-step with success checks:
+```powershell
+git add vercel.json
+if ($?) { git commit -m "Fix: valid header regex patterns for Vercel" }
+if ($?) { git push }
+```
+
+- One-liner conditional using $LASTEXITCODE:
+```powershell
+git add vercel.json; if ($LASTEXITCODE -eq 0) { git commit -m 'Fix: valid header regex patterns for Vercel'; if ($LASTEXITCODE -eq 0) { git push } }
+```
+
+- Alternative: run the original Bash command in Git Bash or cmd:
+```powershell
+# Git Bash (if installed)
+bash -c "git add vercel.json && git commit -m 'Fix: valid header regex patterns for Vercel' && git push"
+
+# cmd.exe
+cmd /c "git add vercel.json && git commit -m \"Fix: valid header regex patterns for Vercel\" && git push"
+```
+
+Tips:
+- Use `git status` to verify staged/unstaged changes before committing.
+- If you prefer a GUI, use GitHub Desktop or VSCode Source Control for commit + push.
+
+---
+
 **Last Updated**: December 2024
