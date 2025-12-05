@@ -1539,15 +1539,41 @@ section.loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
     z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    /* Balanced premium background: soft warm ivory gradient with subtle tonal shifts. */
+    background: radial-gradient(1200px 1200px at 50% 34%, #ffffff 0%, #fffaf3 35%, #fff6eb 62%, #fff2e6 100%);
+    /* Add subtle textured overlay using repeated radial pattern with very low opacity */
 }
 
 #preloader[aria-hidden="true"],
 #preloader.hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+/* subtle texture overlay using a pseudo element */
+#preloader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 998;
+    pointer-events: none;
+    background-image:
+        radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0,0,0,0.012), rgba(0,0,0,0.008));
+    background-size: 10px 10px, 100% 100%;
+    mix-blend-mode: overlay;
+}
+
+/* subtle vignette for balance */
+#preloader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 55%, rgba(0,0,0,0.06) 100%);
 }
 
 .preloader-content {

@@ -7,9 +7,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
     z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    /* Balanced, premium ivory gradient for ultra layout */
+    background: radial-gradient(1000px 1000px at 50% 40%, #fffaf5 0%, #fff6ec 50%, #fff1e3 100%);
+}
+#preloader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 998;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 9px 9px;
+    mix-blend-mode: overlay;
+}
+
+#preloader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: radial-gradient(60% 60% at 50% 42%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 65%, rgba(0,0,0,0.06) 100%);
 }
 
 #preloader[aria-hidden="true"],
