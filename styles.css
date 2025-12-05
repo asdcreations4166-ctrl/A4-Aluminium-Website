@@ -1555,14 +1555,30 @@ section.loading {
 }
 
 .preloader-logo {
-    height: 64px;
+    /* Make logo more prominent - 4cm radius (8cm diameter). Falls back to px for cross-browser consistency */
+    height: 8cm; /* 8cm approximates 302px on many displays; will scale with device DPI */
+    width: 8cm;
     width: auto;
     display: inline-block;
     object-fit: contain;
 }
 
 @media (max-width: 767.98px) {
-    .preloader-logo { height: 48px; }
+    /* Smaller variant for mobile to avoid full-screen coverage */
+    .preloader-logo { height: 6cm; width: 6cm; }
+}
+
+/* Subtle pulse/blink animation to make logo feel alive */
+@keyframes preloader-blink {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.72; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.preloader-logo {
+    animation: preloader-blink 2.4s ease-in-out infinite;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Subtle screen-reader friendly label */

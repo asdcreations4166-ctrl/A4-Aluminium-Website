@@ -23,14 +23,28 @@
 }
 
 .preloader-logo {
-    height: 64px;
+    height: 8cm;
+    width: 8cm;
     width: auto;
     display: inline-block;
     object-fit: contain;
 }
 
 @media (max-width: 767.98px) {
-    .preloader-logo { height: 48px; }
+    .preloader-logo { height: 6cm; width: 6cm; }
+}
+
+/* Blink animation for ultra style preloader */
+@keyframes preloader-blink-ultra {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.72; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.preloader-logo {
+    animation: preloader-blink-ultra 2.4s ease-in-out infinite;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Subtle screen-reader friendly label */
