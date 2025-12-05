@@ -118,11 +118,12 @@ h4 {
 
 .partner-frame .partner-img {
     position: absolute;
-    top: 1.5cm;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 1.5cm);
+    height: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
     border-radius: 12px;
     transition: transform .35s ease, box-shadow .35s ease;
