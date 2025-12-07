@@ -101,6 +101,95 @@
   pointer-events: none;
 }
 
+/* Subtle, performant hero visual animation (float + gentle scale on hover) */
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-image-frame {
+  will-change: transform;
+  /* run a slow float only on medium+ screens to save battery on small devices */
+  animation: heroFloat 7s ease-in-out infinite;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.hero-image-frame:hover .hero-shop-img,
+.hero-image-frame:focus-within .hero-shop-img {
+  transform: scale(1.03);
+}
+
+.hero-shop-img {
+  transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-frame,
+  .hero-shop-img {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Disable float animation on very small screens to avoid layout shift */
+@media (max-width: 576px) {
+  .hero-image-frame {
+    animation: none !important;
+  }
+}
+
+/* Subtle float for partner/product frames to match hero visual (smaller movement) */
+@keyframes frameFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.005);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.partner-frame,
+.product-image {
+  will-change: transform;
+  animation: frameFloat 9s ease-in-out infinite;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.partner-frame:hover,
+.partner-frame:focus-within,
+.product-image:hover,
+.product-image:focus-within {
+  transform: translateY(-2px) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-frame,
+  .product-image {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .partner-frame,
+  .product-image {
+    animation: none !important;
+  }
+}
+
 @media (min-width: 1400px) {
   .hero-image-frame {
     width: min(92%, 1200px);
@@ -256,4 +345,30 @@ img {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
+}
+
+/* Override: remove light/gold background & border on partner cards
+   and replace with a darker, subtler shadow so cards sit cleanly
+   on the dark page background. This targets the partners section only. */
+.partners-section .partner-card.card,
+.partners-section .card {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Keep inner card body readable with a slightly translucent dark backdrop */
+.partners-section .partner-card .card-body {
+  background: rgba(4, 6, 10, 0.45) !important;
+  padding: 1.25rem !important;
+  border-radius: 10px !important;
+}
+
+/* Ensure partner-frame contrast remains neutral (remove warm tint) */
+.partners-section .partner-frame,
+.partners-section .partner-img {
+  background: transparent !important;
+  box-shadow: none !important;
 }
