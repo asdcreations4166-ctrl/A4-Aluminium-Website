@@ -4,15 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Preloader
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                // Use both inline styles and aria-hidden / class for cross-browser compatibility
+        const hidePreloader = () => {
+            try {
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
                 preloader.setAttribute('aria-hidden', 'true');
                 preloader.classList.add('hidden');
-            }, 1000);
+            } catch (e) {
+                // ignore
+            }
+        };
+
+        // Hide on window load as normal
+        window.addEventListener('load', function() {
+            setTimeout(hidePreloader, 250);
         });
+
+        // Fallback: hide after 2 seconds in case load doesn't fire (slow/blocked resources)
+        setTimeout(() => {
+            if (preloader.getAttribute('aria-hidden') !== 'true') hidePreloader();
+        }, 2000);
     }
 
     // Navbar scroll effect
