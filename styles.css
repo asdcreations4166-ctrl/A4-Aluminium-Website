@@ -403,6 +403,101 @@ h4 {
     animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
 }
 
+/* Hero metrics: styled numbers and labels (improved spacing & alignment) */
+.hero-metrics {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 1.6rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.hero-metrics .metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 150px;
+    padding: 0 0.5rem;
+}
+.hero-metrics .metric-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 2.25rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.45rem;
+    background: linear-gradient(90deg, var(--brand-gold), #e5c856);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+.hero-metrics .metric-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    margin-top: 0;
+    max-width: 220px;
+    line-height: 1.25;
+    font-weight: 500;
+}
+.hero-metrics .metric-divider {
+    width: 1px;
+    height: 56px;
+    margin: 0.35rem 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(212,175,55,0.06));
+    border-radius: 2px;
+    align-self: stretch;
+}
+
+@media (min-width: 1200px) {
+    .hero-metrics { gap: 3rem; }
+    .hero-metrics .metric-number { font-size: 3rem; }
+}
+
+@media (max-width: 767.98px) {
+    .hero-metrics { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .hero-metrics .metric { min-width: auto; align-items: flex-start; text-align: left; padding: 0; }
+    .hero-metrics .metric-number { font-size: 1.6rem; margin-bottom: 0.25rem; }
+    .hero-metrics .metric-divider { display: none; }
+}
+
+/* Desktop: keep metrics in a single row and align numbers on one horizontal line */
+@media (min-width: 992px) {
+    .hero-metrics { flex-wrap: nowrap; align-items: center; justify-content: space-between; }
+    .hero-metrics .metric { padding: 0 1rem; flex: 1 1 0; min-width: 0; }
+    .hero-metrics .metric-label { margin-top: 0.25rem; }
+}
+
+/* Prevent the golden hero heading from wrapping on wide screens */
+@media (min-width: 992px) {
+    .hero-title { white-space: nowrap; }
+    .hero-title .text-luxury { display: inline-block; }
+}
+
+/* Add spacing and a gold rule under the hero title, and keep metrics spaced */
+.hero-title {
+    margin-bottom: 1.1rem; /* create breathing room above metrics */
+    position: relative;
+}
+.hero-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    max-width: 520px;
+    height: 4px;
+    margin: 0.75rem auto 0; /* center the rule under the heading */
+    background: linear-gradient(90deg, rgba(212,175,55,1), rgba(229,200,86,0.95));
+    border-radius: 3px;
+    box-shadow: 0 6px 18px rgba(212,175,55,0.12);
+}
+
+@media (min-width: 992px) {
+    .hero-title { margin-bottom: 1.4rem; }
+    .hero-title::after { width: 48%; max-width: 680px; height: 5px; margin-top: 0.9rem; }
+}
+
 .hero-btn {
     font-weight: 700;
     border-radius: 999px;
@@ -2344,6 +2439,13 @@ section.loading {
     .footer ul li {
         font-size: 0.85rem !important;
         line-height: 1.5 !important;
+    }
+
+    /* Final override: shift right-side nav block 2cm to the right on large screens */
+    @media (min-width: 1200px) {
+        .navbar-nav.ms-auto {
+            margin-left: 2cm !important;
+        }
     }
 
     /* Back to Top Mobile */

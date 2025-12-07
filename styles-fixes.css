@@ -1,0 +1,235 @@
+/* Fix: allow hero-title to wrap on smaller screens and prevent clipping */
+@media (max-width: 1199px) {
+  .hero-title {
+    /* allow wrapping on medium and smaller viewports */
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    /* scale down slightly on tablets/phones */
+    font-size: clamp(2.2rem, 6.5vw, 3.2rem) !important;
+    line-height: 1.05 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: clamp(1.6rem, 8.5vw, 2.6rem) !important;
+    line-height: 1.08 !important;
+  }
+}
+
+/* Small adjustment to ensure the hero text container doesn't clip text accidentally */
+.hero-text-luxury {
+  overflow: visible !important;
+}
+
+/* Frame and image styling for hero shop image (right column) */
+.hero-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.hero-image-frame {
+  /* Fluid frame: use up to 1100px on large screens, but remain responsive */
+  width: min(92%, 1100px);
+  max-width: 1100px;
+  /* Match the photo aspect ratio (1536x672 -> 16/7) */
+  aspect-ratio: 16 / 7;
+  border-radius: 18px;
+  /* 25% thicker than previous 2px -> 2.5px */
+  border: 2.5px solid rgba(212, 175, 55, 0.98);
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.6),
+    0 6px 18px rgba(212, 175, 55, 0.06) inset;
+  overflow: hidden;
+  background: linear-gradient(
+    /* Partner card and general card alignment fixes */
+      /* Make card bodies use column layout so titles and text align at bottom where desired */
+      .partner-card .card-body,
+    .product-card .card-body {display: flex; flex-direction: column; gap: 0.75rem;
+      height: 100%;}
+      /* Partner frame: keep logos centered, use contain to avoid cropping logos */
+      .partner-frame {width: 100%; aspect-ratio: 4 / 3; display: flex; align-items:
+      center; justify-content: center; overflow: hidden; background: rgba(
+        255,
+        255,
+        255,
+        0.02
+      ) ; border-radius: 8px;} .partner-img {width: 100%; height: 100%; object-fit:
+      contain; display: block;}
+      /* Ensure cards stretch to equal height in grid (Bootstrap helps with .h-100) */
+      .partner-card.card,
+    .product-card.card {height: 100%;}
+      /* Hero responsiveness: respect measured navbar height and avoid overflow on small screens */
+      header.hero-luxury {min-height: calc(100vh - var(--nav-height, 90px)) ; display:
+      block;} @media (max-width: 767px) {header.hero-luxury {min-height: auto;
+      /* allow natural height on small screens to avoid excessive whitespace */
+      padding-top: 2rem; padding-bottom: 2rem;} .hero-image-frame {max-width:
+      420px;}} 180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(0, 0, 0, 0.16)
+  );
+  margin-left: auto; /* anchor to the right of the column */
+  position: relative; /* create stacking context for pseudo-elements */
+}
+
+.hero-shop-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2; /* ensure the image sits above the decorative overlay */
+}
+
+/* Fallback placeholder when image is missing */
+.hero-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.06) 0%,
+    rgba(212, 175, 55, 0.02) 100%
+  );
+  mix-blend-mode: normal;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+@media (min-width: 1400px) {
+  .hero-image-frame {
+    width: min(92%, 1200px);
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hero-image-frame {
+    max-width: 860px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-image-frame {
+    max-width: 680px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-image-frame {
+    max-width: 520px;
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Override: remove decorative underline and tighten spacing below hero title */
+.hero-title::after {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  content: none !important;
+}
+
+.hero-title {
+  margin-bottom: 0.6rem !important; /* reduced spacing under title */
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+    margin-bottom: 0.8rem !important;
+  }
+}
+
+/* Small semantic spacer used before section headings when needed */
+/* (Main spacer defined below as 2rem; this file keeps only the larger variant.) */
+.section-spacer {
+  height: 2rem; /* larger: full line (approx) of space */
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .section-spacer {
+    height: 1rem;
+  }
+}
+
+/* Ensure section headings are visible when a navbar overlays the page */
+.section-title {
+  position: relative !important;
+  z-index: 1050 !important; /* above typical navbar z-index */
+  /* Respect measured navbar height when available (set by JS) */
+  scroll-margin-top: var(--nav-height, 90px) !important;
+  padding-top: 0.25rem !important;
+}
+
+/* Anchor fallback */
+section {
+  scroll-margin-top: var(--nav-height, 90px);
+}
+
+/* When JS detects a navbar height, add this class to push sections down
+   so headings are never visually hidden under an overlaying navbar. */
+body.has-nav-offset section {
+  padding-top: calc(var(--nav-height, 90px) + 12px) !important;
+}
+
+/* Global responsive helpers (apply site-wide) */
+/* Ensure images don't overflow their containers and use object-fit where appropriate */
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* Product cards: keep consistent aspect ratio and crop with object-fit */
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: block;
+  background: #111; /* subtle fallback */
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Make embedded maps responsive */
+.embed-map {
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+
+/* Floating CTA adaptions for small screens */
+.floating-cta {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: 1100;
+}
+
+@media (max-width: 576px) {
+  .embed-map {
+    height: 200px;
+  }
+  .floating-cta {
+    right: 0.6rem;
+    bottom: 1rem;
+  }
+}
+
+/* Back to top button sizing on very small screens */
+#backToTop {
+  right: 1rem;
+  bottom: 4.5rem;
+}

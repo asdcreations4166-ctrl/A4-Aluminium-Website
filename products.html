@@ -1,139 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Products - A4 Aluminium Centre</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles-fixes.css" />
+  </head>
+  <body>
     <!-- Preloader: removed for non-home pages -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/logo-a44.png" alt="A4 Aluminium logo" class="logo-img me-2" loading="lazy" decoding="async">
-                <span class="brand-gold">A4</span> Aluminium Centre
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <!-- left-side: other links (if any) go here -->
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-box me-1"></i>Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="careers.html"><i class="fas fa-user-tie me-1"></i>Careers</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/logo-a44.png"
+            alt="A4 Aluminium logo"
+            class="logo-img me-2"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="brand-gold">A4</span> Aluminium Centre
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <!-- left-side: other links (if any) go here -->
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"
+                ><i class="fas fa-home me-1"></i>Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html"
+                ><i class="fas fa-box me-1"></i>Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html"
+                ><i class="fas fa-envelope me-1"></i>Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="careers.html"
+                ><i class="fas fa-user-tie me-1"></i>Careers</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <section class="products-section py-5">
-        <div class="container px-3 px-md-0">
-            <h1 class="section-title text-center mb-5">Available Products</h1>
-            <p class="section-subtitle text-center mb-5">Finest quality aluminium solutions for your needs</p>
-            
-            <div class="row g-4 mb-5">
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <img src="assets/product-1.jpg" alt="Product 1" class="product-img">
-                        </div>
-                    </div>
-                </div>
+      <div class="container px-3 px-md-0">
+        <div class="section-spacer" aria-hidden="true"></div>
+        <h1 class="section-title text-center mb-5">Available Products</h1>
+        <p class="section-subtitle text-center mb-5">
+          Finest quality aluminium products for your needs
+        </p>
 
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <img src="assets/product-2.jpg" alt="Product 2" class="product-img">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="product-card card h-100">
-                        <div class="product-image">
-                            <img src="assets/product-3.jpg" alt="Product 3" class="product-img">
-                        </div>
-                    </div>
-                </div>
-                <!-- Removed individual product cards to replace with consolidated product list access -->
-                <div class="row w-100">
-                    <div class="col-12 text-center my-4">
-                        <a id="viewListBtn" class="btn btn-lg btn-outline-light" href="assets/Available-Products-list.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf me-2"></i>Download Product List</a>
-                    
-                    </div>
-                </div>
+        <div class="row g-4 mb-5">
+          <div class="col-md-4">
+            <div class="product-card card h-100">
+              <div class="product-image">
+                <img
+                  src="assets/product-1.jpg"
+                  alt="Product 1"
+                  class="product-img"
+                />
+              </div>
             </div>
+          </div>
 
-            <div class="alert alert-info" role="alert">
-                <i class="fas fa-info-circle me-2"></i>
-                <strong>Need Custom Specifications?</strong> Contact us to discuss your specific requirements and get a personalized quote.
+          <div class="col-md-4">
+            <div class="product-card card h-100">
+              <div class="product-image">
+                <img
+                  src="assets/product-2.jpg"
+                  alt="Product 2"
+                  class="product-img"
+                />
+              </div>
             </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="product-card card h-100">
+              <div class="product-image">
+                <img
+                  src="assets/product-3.jpg"
+                  alt="Product 3"
+                  class="product-img"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Removed individual product cards to replace with consolidated product list access -->
+          <div class="row w-100">
+            <div class="col-12 text-center my-4">
+              <a
+                id="viewListBtn"
+                class="btn btn-lg btn-outline-light"
+                href="assets/Available-Products-list.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fas fa-file-pdf me-2"></i>Download Product List</a
+              >
+            </div>
+          </div>
         </div>
+
+        <div class="alert alert-info" role="alert">
+          <i class="fas fa-info-circle me-2"></i>
+          <strong>Need Custom Specifications?</strong> Contact us to discuss
+          your specific requirements and get a personalized quote.
+        </div>
+      </div>
     </section>
 
-    <a href="#" id="backToTop" class="btn btn-primary" title="Back to top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" id="backToTop" class="btn btn-primary" title="Back to top"
+      ><i class="fas fa-arrow-up"></i
+    ></a>
 
-    <button id="floatingCallback" class="floating-cta" aria-label="Request a call back">
-        <i class="fas fa-phone"></i>
-        <span class="d-none d-md-inline ms-2">Request a call back</span>
+    <button
+      id="floatingCallback"
+      class="floating-cta"
+      aria-label="Request a call back"
+    >
+      <i class="fas fa-phone"></i>
+      <span class="d-none d-md-inline ms-2">Request a call back</span>
     </button>
 
     <footer class="footer py-5">
-        <div class="container mb-4">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5><i class="fas fa-cube me-2 text-primary"></i><span class="brand-gold">A4</span> Aluminium</h5>
-                    <p class="text-muted small">Premium quality aluminium products and services for Kerala.</p>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Follow Us</h5>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/__a4_aluminium_" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Follow us on Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://wa.me/9496612460" target="_blank" rel="noopener noreferrer" class="text-white me-3" title="Contact us on WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
-                    </div>
-                </div>
+      <div class="container mb-4">
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>
+              <i class="fas fa-cube me-2 text-primary"></i
+              ><span class="brand-gold">A4</span> Aluminium
+            </h5>
+            <p class="text-muted small">
+              Premium quality aluminium products and services for Kerala.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled small">
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Follow Us</h5>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/__a4_aluminium_"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white me-3"
+                title="Follow us on Instagram"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a
+                href="https://wa.me/9496612460"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white me-3"
+                title="Contact us on WhatsApp"
+                ><i class="fab fa-whatsapp fa-lg"></i
+              ></a>
             </div>
+          </div>
         </div>
-        <hr class="bg-secondary my-4">
-        <p class="text-center text-muted small mb-0">@ 2026 A4 Aluminium. All rights reserved</p>
+      </div>
+      <hr class="bg-secondary my-4" />
+      <p class="text-center text-muted small mb-0">
+        @ 2026 A4 Aluminium. All rights reserved
+      </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
-        // The product list is now provided from a project-relative path `assets/Available-Products-list.pdf`.
-        // The 'Download Product List' button opens that file in a new tab.
-        // Optionally, we can detect missing files and show a message when needed.
-        document.addEventListener('DOMContentLoaded', function () {
-            var link = document.getElementById('viewListBtn');
-            if (!link) return;
-            // Check availability (optional): try a HEAD request and show an alert if missing.
-            fetch(link.getAttribute('href'), { method: 'HEAD' }).then(function (res) {
-                if (!res.ok) {
-                    console.warn('Product list not available on server:', res.status);
-                    var note = document.createElement('p');
-                    note.className = 'small text-warning mt-2';
-                    note.textContent = 'Product list not found on the server. Please upload the file to the project assets.';
-                    link.parentNode.appendChild(note);
-                }
-            }).catch(function (err) {
-                console.warn('Could not verify product list availability:', err);
-            });
-        });
+      // The product list is now provided from a project-relative path `assets/Available-Products-list.pdf`.
+      // The 'Download Product List' button opens that file in a new tab.
+      // Optionally, we can detect missing files and show a message when needed.
+      document.addEventListener("DOMContentLoaded", function () {
+        var link = document.getElementById("viewListBtn");
+        if (!link) return;
+        // Check availability (optional): try a HEAD request and show an alert if missing.
+        fetch(link.getAttribute("href"), { method: "HEAD" })
+          .then(function (res) {
+            if (!res.ok) {
+              console.warn("Product list not available on server:", res.status);
+              var note = document.createElement("p");
+              note.className = "small text-warning mt-2";
+              note.textContent =
+                "Product list not found on the server. Please upload the file to the project assets.";
+              link.parentNode.appendChild(note);
+            }
+          })
+          .catch(function (err) {
+            console.warn("Could not verify product list availability:", err);
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
