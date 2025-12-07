@@ -293,7 +293,7 @@ git revert HEAD
 
 ## Contact A4 Aluminium
 
-- Email: info@a4aluminium.com
+- Email: enquiry.a4aluminium@gmail.com
 - Phone: +91 9496612460
 - WhatsApp: +91 9496612460
 

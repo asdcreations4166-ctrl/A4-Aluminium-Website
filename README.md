@@ -62,7 +62,7 @@ Visit the live site: [A4 Aluminium](https://asdcreations4166-ctrl.github.io/A4-A
 
 - **Phone**: +91 9496612460
 - **WhatsApp**: [Chat Now](https://wa.me/9496612460)
-- **Email**: info@a4aluminium.com
+- **Email**: enquiry.a4aluminium@gmail.com
 - **LinkedIn**: [A4 Aluminium](https://www.linkedin.com/company/a4-aluminium)
 - **Instagram**: [@a4aluminium](https://www.instagram.com/a4aluminium)
 - **Facebook**: [A4 Aluminium](https://www.facebook.com/a4aluminium)
@@ -172,7 +172,7 @@ Ready to integrate with:
 
 Contact forms are powered by **Web3Forms**:
 - No backend required
-- Email notifications to: info@a4aluminium.com
+- Email notifications to: enquiry.a4aluminium@gmail.com
 - Automatic redirect on success
 - AJAX submission for smooth UX
 
@@ -196,7 +196,7 @@ Contact forms are powered by **Web3Forms**:
 ## 🤝 Support
 
 For issues, feature requests, or support:
-- Email: info@a4aluminium.com
+- Email: enquiry.a4aluminium@gmail.com
 - Phone: +91 9496612460
 - WhatsApp: [Chat](https://wa.me/9496612460)
 

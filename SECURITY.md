@@ -2,7 +2,7 @@
 
 ## Reporting Security Vulnerabilities
 
-If you discover a security vulnerability, please email info@a4aluminium.com with:
+If you discover a security vulnerability, please email enquiry.a4aluminium@gmail.com with:
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact
@@ -48,5 +48,5 @@ Security updates will be released as needed. Check regularly for updates.
 
 ## Questions?
 
-Contact: info@a4aluminium.com
+Contact: enquiry.a4aluminium@gmail.com
 Phone: +91 9496612460

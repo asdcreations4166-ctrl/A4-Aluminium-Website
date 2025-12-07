@@ -271,8 +271,8 @@ git push origin main
 - Vercel Support: https://vercel.com/support
 - GitHub Issues: https://github.com/asdcreations4166-ctrl/A4-Aluminium-Website/issues
 
-**For Business Questions:**
-- Email: info@a4aluminium.com
+- **For Business Questions:**
+- - Email: enquiry.a4aluminium@gmail.com
 - Phone: +91 9496612460
 - WhatsApp: +91 9496612460
 
