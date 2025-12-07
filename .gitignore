@@ -117,3 +117,6 @@ Thumbs.db
 *.min.js
 *.min.css
 *.gz
+
+# Ignore local copy of the Nu HTML Checker jar (download on-demand instead)
+vnu.jar

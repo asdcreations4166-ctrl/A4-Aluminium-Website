@@ -130,6 +130,23 @@ h4 {
     transition: transform .35s ease, box-shadow .35s ease;
 }
 
+/* Styling for partners that don't have an image (text-only) */
+.partner-noimage {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1.25rem auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.85);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
 
 
 .partner-card {
