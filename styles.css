@@ -755,6 +755,24 @@ blockquote {
     margin: 0; /* remove any default image margins */
 }
 
+/* Hero shop image tweaks to match provided design */
+.shop-image-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.shop-image {
+    width: 100%;
+    height: 460px; /* fixed visual height like the screenshot */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
 .product-image i,
 .work-image i {
     font-size: 3rem;
