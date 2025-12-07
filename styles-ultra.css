@@ -2,213 +2,328 @@
 
 /* Brand variables for ultra layout */
 :root {
-    --brand-gold: #d4af37;
-    --brand-gold-strong: rgba(212,175,55,0.95);
-    --brand-gold-soft: rgba(212,175,55,0.06);
-    --bg-ultra-ivory: #fffaf5;
+  --brand-gold: #d4af37;
+  --brand-gold-strong: rgba(212, 175, 55, 0.95);
+  --brand-gold-soft: rgba(212, 175, 55, 0.06);
+  --bg-ultra-ivory: #fffaf5;
 }
 
 /* Preloader overlay with centered logo (white background) */
 #preloader {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-    /* Premium ivory / champagne background to amplify luxury for ultra layout */
-    background: radial-gradient(900px 900px at 50% 40%, rgba(212,175,55,0.06) 0%, #fffaf5 18%, #fff6eb 55%, #fff1e3 100%),
-                linear-gradient(180deg, rgba(255,250,245,1) 0%, rgba(255,246,238,1) 100%);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  /* Premium ivory / champagne background to amplify luxury for ultra layout */
+  background: radial-gradient(
+      900px 900px at 50% 40%,
+      rgba(212, 175, 55, 0.06) 0%,
+      #fffaf5 18%,
+      #fff6eb 55%,
+      #fff1e3 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 250, 245, 1) 0%,
+      rgba(255, 246, 238, 1) 100%
+    );
 }
 #preloader::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 998;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 9px 9px;
-    mix-blend-mode: overlay;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 998;
+  pointer-events: none;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px
+  );
+  background-size: 9px 9px;
+  mix-blend-mode: overlay;
 }
 
 /* Soft vignette for subtle focus */
 #preloader::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1000;
-    pointer-events: none;
-    background: radial-gradient(60% 60% at 50% 42%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.08) 100%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 60% at 50% 42%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.02) 40%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
 }
 
 #preloader[aria-hidden="true"],
 #preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .preloader-content {
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    padding: 1rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
 }
 
 .preloader-logo {
-    height: 8cm;
-    width: 8cm;
-    max-width: 92vw;
-    max-height: 92vh;
-    width: auto;
-    display: inline-block;
-    object-fit: contain;
+  height: 8cm;
+  width: 8cm;
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  display: inline-block;
+  object-fit: contain;
 }
 
 @media (max-width: 767.98px) {
-    .preloader-logo { height: 6cm; width: 6cm; }
+  .preloader-logo {
+    height: 6cm;
+    width: 6cm;
+  }
 }
 
 /* Blink animation for ultra style preloader */
 @keyframes preloader-blink-ultra {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.72; transform: scale(1.03); }
-    100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .preloader-logo {
-    animation: preloader-blink-ultra 3s ease-in-out infinite;
-    border-radius: 0.36cm;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
+  animation: preloader-blink-ultra 3s ease-in-out infinite;
+  border-radius: 0.36cm;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
 }
 
 /* Decorative background circle behind the logo for ultra style */
 .preloader-circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 9cm;
-    height: 9cm;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 25%, rgba(255,246,232,1) 0%, rgba(255,240,220,1) 15%, rgba(243,196,112,0.95) 36%, rgba(200,145,70,0.85) 70%, rgba(160,120,55,0.80) 100%);
-    box-shadow: 0 10px 35px rgba(0,0,0,0.08), inset 0 2px 6px rgba(255,255,255,0.02);
-    will-change: transform, opacity;
-    animation: preloader-circle-pulse-ultra 4.5s ease-in-out infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 9cm;
+  height: 9cm;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 25%,
+    rgba(255, 246, 232, 1) 0%,
+    rgba(255, 240, 220, 1) 15%,
+    rgba(243, 196, 112, 0.95) 36%,
+    rgba(200, 145, 70, 0.85) 70%,
+    rgba(160, 120, 55, 0.8) 100%
+  );
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08),
+    inset 0 2px 6px rgba(255, 255, 255, 0.02);
+  will-change: transform, opacity;
+  animation: preloader-circle-pulse-ultra 4.5s ease-in-out infinite;
 }
 
 @keyframes preloader-circle-pulse-ultra {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
-    50% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.85; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+  }
 }
 
 /* Shiny sheen sweep across the gold background for ultra pages */
 .preloader-circle::before {
-    content: "";
-    position: absolute;
-    left: -40%;
-    top: -40%;
-    width: 140%;
-    height: 140%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.26), rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.26));
-    transform: rotate(-20deg);
-    filter: blur(18px);
-    opacity: 0.8;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    will-change: transform;
-    animation: preloader-sheen-ultra 3.4s linear infinite;
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: -40%;
+  width: 140%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.26)
+  );
+  transform: rotate(-20deg);
+  filter: blur(18px);
+  opacity: 0.8;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation: preloader-sheen-ultra 3.4s linear infinite;
 }
 
 @keyframes preloader-sheen-ultra {
-    0% { transform: translateX(-110%) rotate(-20deg); }
-    100% { transform: translateX(110%) rotate(-20deg); }
+  0% {
+    transform: translateX(-110%) rotate(-20deg);
+  }
+  100% {
+    transform: translateX(110%) rotate(-20deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .preloader-circle::before { animation: none; transform: none; opacity: 0.7; }
+  .preloader-circle::before {
+    animation: none;
+    transform: none;
+    opacity: 0.7;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .preloader-logo, .preloader-circle {
-        animation: none !important;
-    }
+  .preloader-logo,
+  .preloader-circle {
+    animation: none !important;
+  }
 }
 
 /* Subtle screen-reader friendly label */
 .preloader-text {
-    margin-top: 12px;
-    color: rgba(20,17,14,0.9);
-    font-weight: 600;
+  margin-top: 12px;
+  color: rgba(20, 17, 14, 0.9);
+  font-weight: 600;
 }
 
 /* Logo badge for ultra pages matching premium ivory colors */
 .navbar-brand .logo-img {
-    height: 36px;
-    padding: 6px;
-    border-radius: 10px;
-    background: #ffffff;
-    display: inline-block;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
+  height: 36px;
+  padding: 6px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: inline-block;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Inline SVG wrapper sizing and ring/highlight animations for Ultra pages */
 .preloader-svg-wrapper {
-    display: inline-block;
-    position: relative;
-    z-index: 3;
-    width: 9cm;
-    height: 9cm;
-    max-width: 92vw;
-    max-height: 92vh;
-    margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  z-index: 3;
+  width: 9cm;
+  height: 9cm;
+  max-width: 92vw;
+  max-height: 92vh;
+  margin: 0 auto;
 }
 
 .preloader-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    transform-origin: 50% 50%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-origin: 50% 50%;
+}
+
+/* Replace large hero image with prominent text branding */
+.hero-shop-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px; /* roughly matches previous logo visual height */
+  font-family: "Playfair Display", serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(135deg, #d4af37 0%, #e5c856 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 1.05;
+}
+
+@media (max-width: 992px) {
+  .hero-shop-title {
+    font-size: 3rem;
+    height: 320px;
+  }
 }
 
 .preloader-ring {
-    transform-origin: 120px 120px;
-    stroke-dasharray: 16 520;
-    stroke-dashoffset: 0;
-    /* slower and smoother for ultra page */
-    animation: preloader-ring-rotate 14s linear infinite, preloader-ring-dash 4.0s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 120px 120px;
+  stroke-dasharray: 16 520;
+  stroke-dashoffset: 0;
+  /* slower and smoother for ultra page */
+  animation: preloader-ring-rotate 14s linear infinite,
+    preloader-ring-dash 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .preloader-highlight {
-    mix-blend-mode: screen;
-    opacity: 0.0;
-    animation: preloader-highlight-sweep 5s linear infinite;
-    will-change: transform, opacity;
-    filter: blur(12px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: preloader-highlight-sweep 5s linear infinite;
+  will-change: transform, opacity;
+  filter: blur(12px);
 }
 
 @keyframes preloader-ring-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes preloader-ring-dash {
-    0% { stroke-dasharray: 16 520; stroke-dashoffset: 0; }
-    50% { stroke-dasharray: 280 120; stroke-dashoffset: -160; }
-    100% { stroke-dasharray: 16 520; stroke-dashoffset: -480; }
+  0% {
+    stroke-dasharray: 16 520;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 280 120;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 16 520;
+    stroke-dashoffset: -480;
+  }
 }
 
 @keyframes preloader-highlight-sweep {
-    0% { transform: translateX(-260px) rotate(-15deg); opacity: 0.0; }
-    24% { opacity: 0.5; }
-    50% { opacity: 0.5; }
-    100% { transform: translateX(260px) rotate(-15deg); opacity: 0.0; }
+  0% {
+    transform: translateX(-260px) rotate(-15deg);
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(260px) rotate(-15deg);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .preloader-ring, .preloader-highlight { animation: none !important; opacity: 1; }
+  .preloader-ring,
+  .preloader-highlight {
+    animation: none !important;
+    opacity: 1;
+  }
 }
