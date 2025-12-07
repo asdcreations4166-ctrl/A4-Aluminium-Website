@@ -13,8 +13,8 @@
     "url": "https://github.com/asdcreations4166-ctrl/A4-Aluminium-Website/issues"
   },
   "scripts": {
-    "start": "python -m http.server 8000",
-    "dev": "python -m http.server 8000",
+    "start": "python -m http.server 8000 --bind 127.0.0.1",
+    "dev": "python -m http.server 8000 --bind 127.0.0.1",
     "test": "echo \"No tests configured yet\"",
     "build": "echo \"Static site - no build needed\"",
     "lint:html": "echo \"HTML validation complete\"",
