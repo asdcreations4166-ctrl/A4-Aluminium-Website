@@ -40,15 +40,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || href === "#") return;
       e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
+      const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
+        // Prefer the CSS variable set by the navbar measurement; fall back to navbar.offsetHeight or 80px
+        const navHeightVar = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("--nav-height");
+        let navHeight = 80;
+        if (navHeightVar) {
+          const parsed = parseInt(navHeightVar.trim().replace("px", ""), 10);
+          if (!Number.isNaN(parsed)) navHeight = parsed;
+        } else if (navbar && navbar.offsetHeight) {
+          navHeight = navbar.offsetHeight;
+        }
+        const offsetTop =
+          targetElement.getBoundingClientRect().top +
+          window.scrollY -
+          navHeight -
+          8; // small gap
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
       }
     });
   });
@@ -109,14 +123,41 @@ document.addEventListener("DOMContentLoaded", function () {
   if (floatingCallback) {
     floatingCallback.addEventListener("click", function (e) {
       e.preventDefault();
+      // If we're on a page that contains the contact section, scroll to it.
       const contactSection = document.getElementById("contact");
       if (contactSection) {
-        const offsetTop = contactSection.offsetTop - 70;
+        // Use measured nav height when available
+        const navHeightVar = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue("--nav-height");
+        let navHeight = 80;
+        if (navHeightVar) {
+          const parsed = parseInt(navHeightVar.trim().replace("px", ""), 10);
+          if (!Number.isNaN(parsed)) navHeight = parsed;
+        } else if (navbar && navbar.offsetHeight) {
+          navHeight = navbar.offsetHeight;
+        }
+        const offsetTop =
+          contactSection.getBoundingClientRect().top +
+          window.scrollY -
+          navHeight -
+          8;
         window.scrollTo({ top: offsetTop, behavior: "smooth" });
         setTimeout(() => {
           const phoneInput = document.getElementById("phone");
           if (phoneInput) phoneInput.focus();
         }, 700);
+        return;
+      }
+
+      // Otherwise, navigate to the contact page and include a fragment so it lands there.
+      // Using location.assign so history behaves normally.
+      const currentPath = window.location.pathname.split("/").pop();
+      // If already on contact page but element missing, reload to ensure correct anchor
+      if (currentPath && /contact\.html$/i.test(currentPath)) {
+        window.location.href = "contact.html";
+      } else {
+        window.location.href = "contact.html#contact";
       }
     });
   }
