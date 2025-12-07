@@ -256,6 +256,44 @@ h4 {
     box-shadow: inset 0 -100px 200px rgba(0,0,0,0.5);
 }
 
+/* Luxury hero (index.html) alignment fixes */
+.hero-luxury {
+    position: relative;
+    padding: 0; /* remove extra top spacing */
+    min-height: calc(100vh - 72px); /* account for fixed navbar height */
+    display: flex;
+    align-items: center; /* vertical centering */
+}
+
+.hero-content-luxury { /* ensure internal container doesn't add extra top padding */
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.hero-text-luxury {
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+
+.hero-pretitle { margin-top: 0; margin-bottom: 0.6rem; }
+.hero-title { margin-top: 0; margin-bottom: 0.6rem; }
+.hero-subtitle { margin-top: 0.6rem; }
+
+.hero-visual .shop-image-wrapper { display: flex; align-items: center; justify-content: center; }
+.hero-visual { text-align: right; }
+
+/* Reduce oversized left padding on very large screens to keep layout balanced */
+@media (min-width: 1400px) {
+    .container-fluid.px-5 { padding-left: 6rem; padding-right: 6rem; }
+}
+
+@media (max-width: 991.98px) {
+    .hero-luxury { min-height: auto; padding-top: 40px; padding-bottom: 40px; }
+    .hero-text-luxury { padding-left: 1rem; padding-right: 1rem; }
+    .hero-visual { text-align: center; margin-top: 1.5rem; }
+}
+
 .hero-section::before {
     content: '';
     position: absolute;
@@ -459,6 +497,8 @@ h4 {
     font-weight: 700;
     font-size: 1.5rem;
     letter-spacing: 1px;
+    /* Nudge brand slightly left to match visual spec */
+    transform: translateX(-0.5cm);
 }
 
 .nav-link {
@@ -1636,6 +1676,18 @@ section.loading {
 
 .text-primary {
     color: #E5C856 !important;
+}
+
+/* Force-brand nudge on large screens only */
+@media (min-width: 1200px) {
+    .navbar .navbar-brand {
+        /* Move brand 3cm to the left on large screens */
+        margin-left: -3cm !important;
+    }
+    /* Shift the right-side nav links (Home, Products, Contact, Careers) 2cm to the right */
+    .navbar-nav.ms-auto {
+        margin-left: 2cm !important;
+    }
 }
 
 .text-success {
