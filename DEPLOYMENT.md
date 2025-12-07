@@ -123,6 +123,6 @@ Use client-side configuration only.
 
 ## Contact
 
-- Email: info@a4aluminium.com
+- Email: enquiry.a4aluminium@gmail.com
 - Phone: +91 9496612460
 - Support: GitHub Issues
