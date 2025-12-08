@@ -493,26 +493,64 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", recompute);
   })();
 
-  // Optional: Force desktop mode on narrow viewports via CSS class.
-  // This keeps the responsive meta intact but forces desktop widths
-  // so the site appears in desktop layout on phones (user requested).
-  (function forceDesktopMode() {
+  // Desktop/Responsive toggle: persisted control allowing the user to switch
+  // between forced-desktop and responsive modes at runtime. Default is
+  // Desktop ON for continuity, but the user can toggle to Responsive.
+  (function setupDesktopToggle() {
     try {
-      const shouldForce = window.innerWidth < 1000; // threshold for phones/tablets
-      if (shouldForce) {
-        document.body.classList.add("force-desktop");
-      } else {
-        document.body.classList.remove("force-desktop");
+      const key = "forceDesktop";
+      const read = () => {
+        try {
+          return localStorage.getItem(key);
+        } catch (e) {
+          return null;
+        }
+      };
+      const write = (v) => {
+        try {
+          localStorage.setItem(key, v);
+        } catch (e) {}
+      };
+
+      const saved = read();
+      const enabled = saved === null ? true : saved === "on";
+
+      function applyMode(on) {
+        if (on) document.body.classList.add("force-desktop");
+        else document.body.classList.remove("force-desktop");
+        write(on ? "on" : "off");
+        // trigger layout recalcs that other scripts listen to
+        window.dispatchEvent(new Event("resize"));
       }
 
-      // Re-evaluate on orientation change or resize
-      window.addEventListener("resize", function () {
-        if (window.innerWidth < 1000)
-          document.body.classList.add("force-desktop");
-        else document.body.classList.remove("force-desktop");
+      applyMode(enabled);
+
+      // Build small toggle UI
+      const btn = document.createElement("button");
+      btn.id = "desktopToggle";
+      btn.type = "button";
+      btn.className = "desktop-toggle";
+      btn.title = "Toggle Desktop/Responsive view";
+      btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+      btn.innerText = enabled ? "Desktop" : "Responsive";
+
+      btn.addEventListener("click", () => {
+        const now = document.body.classList.toggle("force-desktop");
+        write(now ? "on" : "off");
+        btn.setAttribute("aria-pressed", now ? "true" : "false");
+        btn.innerText = now ? "Desktop" : "Responsive";
+        // allow other scripts (navbar offset) to recalc
+        setTimeout(() => window.dispatchEvent(new Event("resize")), 50);
       });
+
+      // Append to body after a short delay to avoid interfering with initial paint
+      setTimeout(() => {
+        try {
+          document.body.appendChild(btn);
+        } catch (e) {}
+      }, 120);
     } catch (e) {
-      // fail silently
+      // silent
     }
   })();
 });

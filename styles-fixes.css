@@ -399,6 +399,33 @@ body.force-desktop .partner-frame:hover,
 body.force-desktop .partner-frame:focus-within {
   transform: translateY(-2px) scale(1.01) !important;
 }
+
+/* Desktop/Responsive toggle control */
+#desktopToggle,
+.desktop-toggle {
+  position: fixed;
+  right: 0.7rem;
+  bottom: 0.9rem;
+  z-index: 1200;
+  background: linear-gradient(135deg, #e5c856 0%, #d4af37 100%);
+  color: #08101a;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.desktop-toggle[aria-pressed="true"] {
+  outline: 2px solid rgba(0,0,0,0.08);
+}
+
+@media (min-width: 768px) {
+  /* move toggle top-right on larger screens */
+  .desktop-toggle { right: 1.25rem; bottom: 1.25rem; }
+}
   /* Ensure wrapper elements don't collapse and show white beneath */
   .site-wrapper,
   main,
