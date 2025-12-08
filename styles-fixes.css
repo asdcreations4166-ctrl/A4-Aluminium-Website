@@ -207,7 +207,9 @@
 
 @media (min-width: 1400px) {
   /* keep a large appearance on very wide screens while avoiding overflow */
-  .hero-title { font-size: clamp(3.2rem, 4.6vw, 5.2rem); }
+  .hero-title {
+    font-size: clamp(3.2rem, 4.6vw, 5.2rem);
+  }
 }
 @media (min-width: 992px) {
   .hero-title {
@@ -394,6 +396,44 @@ img {
   .partners-section {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+  }
+}
+
+/* Mobile: remove white/ivory shadows and preloader overlay that can appear on small devices */
+@media (max-width: 767.98px) {
+  /* Hide preloader entirely on phones to avoid bright overlay */
+  #preloader {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Remove bright white backgrounds used on desktop for small screens */
+  .navbar-brand .logo-img,
+  .btn-light,
+  blockquote,
+  .vision-mission-card,
+  .card.bg-white,
+  .card.bg-light {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+  /* Make .btn-light readable on dark mobile backgrounds (use gold CTA) */
+  .btn-light {
+    background: linear-gradient(135deg, #e5c856 0%, #d4af37 100%) !important;
+    color: #0a0f1e !important;
+  }
+
+  /* Ensure hero underline doesn't render as pale band on mobile */
+  .hero-title::after {
+    background: linear-gradient(
+      90deg,
+      rgba(212, 175, 55, 0.95),
+      rgba(229, 200, 86, 0.95)
+    ) !important;
   }
 }
 
