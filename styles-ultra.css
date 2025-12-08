@@ -74,19 +74,18 @@
 }
 
 .preloader-logo {
-  height: 8cm;
-  width: 8cm;
-  max-width: 92vw;
-  max-height: 92vh;
   width: auto;
+  height: auto;
+  max-width: 42vw;
+  max-height: 42vh;
   display: inline-block;
   object-fit: contain;
 }
 
 @media (max-width: 767.98px) {
   .preloader-logo {
-    height: 6cm;
-    width: 6cm;
+    max-width: 60vw;
+    max-height: 60vh;
   }
 }
 
@@ -223,10 +222,10 @@
   display: inline-block;
   position: relative;
   z-index: 3;
-  width: 9cm;
-  height: 9cm;
-  max-width: 92vw;
-  max-height: 92vh;
+  width: auto;
+  height: auto;
+  max-width: 42vw;
+  max-height: 42vh;
   margin: 0 auto;
 }
 
@@ -271,28 +270,30 @@
     preloader-ring-dash 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.preloader-highlight {
-  mix-blend-mode: screen;
-  opacity: 0;
-  animation: preloader-highlight-sweep 5s linear infinite;
+.preloader-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 42vw;
+  height: 42vw;
+  max-width: 420px;
+  max-height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 25%,
+    rgba(255, 246, 232, 1) 0%,
+    rgba(255, 240, 220, 1) 15%,
+    rgba(243, 196, 112, 0.95) 36%,
+    rgba(200, 145, 70, 0.85) 70%,
+    rgba(160, 120, 55, 0.8) 100%
+  );
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08),
+    inset 0 2px 6px rgba(255, 255, 255, 0.02);
   will-change: transform, opacity;
-  filter: blur(12px);
+  animation: preloader-circle-pulse-ultra 4.5s ease-in-out infinite;
 }
-
-@keyframes preloader-ring-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes preloader-ring-dash {
-  0% {
-    stroke-dasharray: 16 520;
-    stroke-dashoffset: 0;
-  }
   50% {
     stroke-dasharray: 280 120;
     stroke-dashoffset: -160;
