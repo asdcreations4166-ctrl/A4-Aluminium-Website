@@ -314,6 +314,24 @@ img {
   html {
     font-size: 15px;
   }
+  /* Prevent white-flash on mobile: disable fixed background and ensure
+     a solid background color and sufficient min-height to avoid
+     transparent gaps when the viewport repaints during scroll. */
+  html,
+  body {
+    background-color: #08090f; /* match site's dark gradient base */
+    background-attachment: scroll !important;
+    min-height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  /* Ensure wrapper elements don't collapse and show white beneath */
+  .site-wrapper,
+  main,
+  .page-content {
+    min-height: 100vh;
+    background-color: transparent;
+  }
   .container,
   .container-fluid,
   section {
