@@ -1,6 +1,30 @@
 // Professional JavaScript for A4 Aluminium Website
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure html/body have inline background styles immediately to avoid
+  // repaint gaps/white flashes during fast scrolling. Inline styles take
+  // precedence over CSS and apply before external CSS fully paints.
+  try {
+    const grad =
+      "linear-gradient(180deg, #08090f 0%, #0d1117 40%, #131820 100%)";
+    document.documentElement.style.background = grad;
+    document.documentElement.style.backgroundAttachment = "scroll";
+    document.documentElement.style.backgroundColor = "#08090f";
+    document.documentElement.style.height = "100%";
+    if (document.body) {
+      document.body.style.background = grad;
+      document.body.style.backgroundAttachment = "scroll";
+      document.body.style.minHeight = "100vh";
+      document.body.style.backgroundColor = "#08090f";
+    }
+    // Reapply on load in case something overrides earlier
+    window.addEventListener("load", function () {
+      document.documentElement.style.backgroundAttachment = "scroll";
+      if (document.body) document.body.style.backgroundAttachment = "scroll";
+    });
+  } catch (e) {
+    // ignore
+  }
   // Preloader
   const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -467,6 +491,29 @@ document.addEventListener("DOMContentLoaded", function () {
     recompute();
     window.addEventListener("resize", recompute);
     window.addEventListener("scroll", recompute);
+  })();
+
+  // Optional: Force desktop mode on narrow viewports via CSS class.
+  // This keeps the responsive meta intact but forces desktop widths
+  // so the site appears in desktop layout on phones (user requested).
+  (function forceDesktopMode() {
+    try {
+      const shouldForce = window.innerWidth < 1000; // threshold for phones/tablets
+      if (shouldForce) {
+        document.body.classList.add("force-desktop");
+      } else {
+        document.body.classList.remove("force-desktop");
+      }
+
+      // Re-evaluate on orientation change or resize
+      window.addEventListener("resize", function () {
+        if (window.innerWidth < 1000)
+          document.body.classList.add("force-desktop");
+        else document.body.classList.remove("force-desktop");
+      });
+    } catch (e) {
+      // fail silently
+    }
   })();
 });
 
