@@ -95,7 +95,8 @@ Before creating an issue:
 
 ## Questions?
 
-- Email: info@a4aluminium.com
+- - Email: enquiry.a4aluminium@gmail.com
 - WhatsApp: +91 9496612460
 
 Thank you for contributing!
+ 
