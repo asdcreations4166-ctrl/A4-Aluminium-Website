@@ -1,30 +1,6 @@
 // Professional JavaScript for A4 Aluminium Website
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Ensure html/body have inline background styles immediately to avoid
-  // repaint gaps/white flashes during fast scrolling. Inline styles take
-  // precedence over CSS and apply before external CSS fully paints.
-  try {
-    const grad =
-      "linear-gradient(180deg, #08090f 0%, #0d1117 40%, #131820 100%)";
-    document.documentElement.style.background = grad;
-    document.documentElement.style.backgroundAttachment = "scroll";
-    document.documentElement.style.backgroundColor = "#08090f";
-    document.documentElement.style.height = "100%";
-    if (document.body) {
-      document.body.style.background = grad;
-      document.body.style.backgroundAttachment = "scroll";
-      document.body.style.minHeight = "100vh";
-      document.body.style.backgroundColor = "#08090f";
-    }
-    // Reapply on load in case something overrides earlier
-    window.addEventListener("load", function () {
-      document.documentElement.style.backgroundAttachment = "scroll";
-      if (document.body) document.body.style.backgroundAttachment = "scroll";
-    });
-  } catch (e) {
-    // ignore
-  }
   // Preloader
   const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -491,67 +467,6 @@ document.addEventListener("DOMContentLoaded", function () {
     recompute();
     window.addEventListener("resize", recompute);
     window.addEventListener("scroll", recompute);
-  })();
-
-  // Desktop/Responsive toggle: persisted control allowing the user to switch
-  // between forced-desktop and responsive modes at runtime. Default is
-  // Desktop ON for continuity, but the user can toggle to Responsive.
-  (function setupDesktopToggle() {
-    try {
-      const key = "forceDesktop";
-      const read = () => {
-        try {
-          return localStorage.getItem(key);
-        } catch (e) {
-          return null;
-        }
-      };
-      const write = (v) => {
-        try {
-          localStorage.setItem(key, v);
-        } catch (e) {}
-      };
-
-      const saved = read();
-      const enabled = saved === null ? true : saved === "on";
-
-      function applyMode(on) {
-        if (on) document.body.classList.add("force-desktop");
-        else document.body.classList.remove("force-desktop");
-        write(on ? "on" : "off");
-        // trigger layout recalcs that other scripts listen to
-        window.dispatchEvent(new Event("resize"));
-      }
-
-      applyMode(enabled);
-
-      // Build small toggle UI
-      const btn = document.createElement("button");
-      btn.id = "desktopToggle";
-      btn.type = "button";
-      btn.className = "desktop-toggle";
-      btn.title = "Toggle Desktop/Responsive view";
-      btn.setAttribute("aria-pressed", enabled ? "true" : "false");
-      btn.innerText = enabled ? "Desktop" : "Responsive";
-
-      btn.addEventListener("click", () => {
-        const now = document.body.classList.toggle("force-desktop");
-        write(now ? "on" : "off");
-        btn.setAttribute("aria-pressed", now ? "true" : "false");
-        btn.innerText = now ? "Desktop" : "Responsive";
-        // allow other scripts (navbar offset) to recalc
-        setTimeout(() => window.dispatchEvent(new Event("resize")), 50);
-      });
-
-      // Append to body after a short delay to avoid interfering with initial paint
-      setTimeout(() => {
-        try {
-          document.body.appendChild(btn);
-        } catch (e) {}
-      }, 120);
-    } catch (e) {
-      // silent
-    }
   })();
 });
 
