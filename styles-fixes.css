@@ -370,6 +370,35 @@ body.force-desktop .partners-section .partner-frame {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* Prevent partner frames from creating horizontal overflow when forced-desktop
+   is active. Clip minor transforms and ensure frames stay within the grid. */
+body.force-desktop .partners-section {
+  overflow-x: hidden;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.force-desktop .partners-section .row {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.force-desktop .partner-card {
+  overflow: hidden; /* clip any shadow/transform that might bleed */
+}
+
+body.force-desktop .partner-frame {
+  box-sizing: border-box;
+  transform-origin: center center;
+  max-width: 260px;
+}
+
+/* Reduce hover/animation scale slightly in forced-desktop to avoid overflow */
+body.force-desktop .partner-frame:hover,
+body.force-desktop .partner-frame:focus-within {
+  transform: translateY(-2px) scale(1.01) !important;
+}
   /* Ensure wrapper elements don't collapse and show white beneath */
   .site-wrapper,
   main,
