@@ -23,6 +23,13 @@
   }
 }
 
+/* Add top spacing on mobile so hero content clears the navbar */
+@media (max-width: 767.98px) {
+  .hero-luxury {
+    padding-top: 60px !important;
+  }
+}
+
 /* Ensure hero text container doesn't accidentally clip */
 .hero-text-luxury {
   overflow: visible;
@@ -468,13 +475,13 @@ img {
 
 /* Ensure navbar toggler (hamburger) is visible on dark backgrounds */
 .navbar-toggler {
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 6px;
 }
 .navbar-toggler:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(229,200,86,0.12);
+  box-shadow: 0 0 0 3px rgba(229, 200, 86, 0.12);
 }
 .navbar-toggler-icon {
   /* white hamburger SVG for high contrast */
@@ -487,7 +494,7 @@ img {
   /* stronger contrast on small screens */
   .navbar-toggler {
     background: linear-gradient(135deg, #e5c856 0%, #d4af37 100%);
-    border-color: rgba(212,175,55,0.2);
+    border-color: rgba(212, 175, 55, 0.2);
   }
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='%230a0f1e' stroke-width='2.6' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
