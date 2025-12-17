@@ -186,7 +186,7 @@ Contact forms are powered by **Web3Forms**:
 
 ## 📄 License
 
-© 2024 A4 Aluminium. All rights reserved.
+© 2026 A4 Aluminium. All rights reserved.
 
 ## 👥 Contributors
 
