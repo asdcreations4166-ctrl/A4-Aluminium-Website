@@ -56,14 +56,14 @@ A4-Aluminium-Website/
 
 ## 🌐 Live Demo
 
-Visit the live site: [A4 Aluminium](https://asdcreations4166-ctrl.github.io/A4-Aluminium-Website/)
+Visit the live site: [A4 Aluminium](https://a4aluminium.in)
 
 ## 📞 Contact Information
 
 - **Phone**: +91 9496612460
 - **WhatsApp**: [Chat Now](https://wa.me/9496612460)
 - **Email**: enquiry.a4aluminium@gmail.com
-- **LinkedIn**: [A4 Aluminium](https://www.linkedin.com/company/a4-aluminium)
+- **LinkedIn**: [developer](https://www.linkedin.com/in/ajvadc)
 - **Instagram**: [@a4aluminium](https://www.instagram.com/a4aluminium)
 - **Facebook**: [A4 Aluminium](https://www.facebook.com/a4aluminium)
 
